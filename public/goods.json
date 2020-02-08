@@ -1,0 +1,352 @@
+{ "goods":[
+    {
+        "id": 12164564,
+        "startTime": "18:30",
+        "imgName": "1.jpg",
+        "name": "小米极简都市双肩包 深灰",
+        "tip": "方形立体设计",
+        "nowPrice": 9.9,
+        "fomerPrice": 149,
+        "alertCount": 24087
+    },
+    {
+        "id": 12164565,
+        "startTime": "18:30",
+        "imgName": "2.png",
+        "name": "米家智能插座基础版 白色",
+        "tip": "让普通家电变智能",
+        "nowPrice": 1,
+        "fomerPrice": 59,
+        "alertCount": 11851
+    },
+    {
+        "id": 12164566,
+        "startTime": "18:30",
+        "imgName": "4.jpg",
+        "name": "米兔定位电话 白色",
+        "tip": "时刻定位，守护你所爱",
+        "nowPrice": 159,
+        "fomerPrice": 169,
+        "alertCount": 464
+    },
+    {
+        "id": 12164567,
+        "startTime": "18:30",
+        "imgName": "6.jpg",
+        "name": "烟雾报警器 白色",
+        "tip": "长效安全，精工品质",
+        "nowPrice": 129,
+        "fomerPrice": 149,
+        "alertCount": 247
+    },
+    {
+        "id": 12164568,
+        "startTime": "18:30",
+        "imgName": "8.jpg",
+        "name": "米家电水壶 白色",
+        "tip": "一杯水，是一家人的安心",
+        "nowPrice": 89,
+        "fomerPrice": 99,
+        "alertCount": 806
+    },
+    {
+        "id": 12164569,
+        "startTime": "18:30",
+        "imgName": "9.jpg",
+        "name": "小米运动蓝牙耳机mini 黑色",
+        "tip": "迷你机身, 小如蚕豆",
+        "nowPrice": 159,
+        "fomerPrice": 169,
+        "alertCount": 280
+    },
+    {
+        "id": 12164570,
+        "startTime": "18:30",
+        "imgName": "10.jpg",
+        "name": "米兔故事机mini 蓝色",
+        "tip": "精选故事，小巧便捷",
+        "nowPrice": 139,
+        "fomerPrice": 149,
+        "alertCount": 102
+    },
+    {
+        "id": 12164571,
+        "startTime": "20:00",
+        "imgName": "5.jpg",
+        "name": "米家车载空气净化器（USB车充版） 灰色",
+        "tip": "高效净化车内空气",
+        "nowPrice": 379,
+        "fomerPrice": 499,
+        "alertCount": 168
+    },
+    {
+        "id": 12164572,
+        "startTime": "20:00",
+        "imgName": "11.png",
+        "name": "米家温湿度传感器 白色",
+        "tip": "智能联动，改善室内温湿度",
+        "nowPrice": 1,
+        "fomerPrice": 49,
+        "alertCount": 3358
+    },
+    {
+        "id": 12164573,
+        "startTime": "20:00",
+        "imgName": "12.jpg",
+        "name": "米家蓝牙温湿度计 白色",
+        "tip": "冷暖干湿，一目了然",
+        "nowPrice": 59,
+        "fomerPrice": 69,
+        "alertCount": 161
+    },
+    {
+        "id": 12164574,
+        "startTime": "20:00",
+        "imgName": "13.jpg",
+        "name": "小米水质TDS检测笔 白色",
+        "tip": "准确检测家中水质纯度",
+        "nowPrice": 29,
+        "fomerPrice": 39,
+        "alertCount": 247
+    },
+    {
+        "id": 12164575,
+        "startTime": "20:00",
+        "imgName": "14.png",
+        "name": "米家LED吸顶灯 白色",
+        "tip": "用光线，还原理想生活",
+        "nowPrice": 379,
+        "fomerPrice": 399,
+        "alertCount": 57
+    },
+    {
+        "id": 12164576,
+        "startTime": "20:00",
+        "imgName": "15.png",
+        "name": "最生活毛巾·青春系列 白色",
+        "tip": "3秒吸水，杀菌无刺激",
+        "nowPrice": 1,
+        "fomerPrice": 19.9,
+        "alertCount": 3340
+    },
+    {
+        "id": 12164577,
+        "startTime": "20:00",
+        "imgName": "17.jpg",
+        "name": "米家声波电动牙刷 白色",
+        "tip": "高效动力，刷的干净",
+        "nowPrice": 178,
+        "fomerPrice": 199,
+        "alertCount": 971
+    },
+    {
+        "id": 12164578,
+        "startTime": "22:00",
+        "imgName": "18.jpg",
+        "name": "米家便携电动剃须刀 黑色",
+        "tip": "男人必备的第二把剃须刀",
+        "nowPrice": 168,
+        "fomerPrice": 179,
+        "alertCount": 538
+    },
+    {
+        "id": 12164579,
+        "startTime": "22:00",
+        "imgName": "19.png",
+        "name": "米家声波电动牙刷头(通用型） 三支装 白色",
+        "tip": "一支高效清洁的刷头",
+        "nowPrice": 1,
+        "fomerPrice": 69,
+        "alertCount": 10253
+    },
+    {
+        "id": 12164580,
+        "startTime": "22:00",
+        "imgName": "20.png",
+        "name": "小米笔记本Air 13 四核i5 8G 256G 银色",
+        "tip": "轻薄全金属机身，256GB SSD",
+        "nowPrice": 2499,
+        "fomerPrice": 4499,
+        "alertCount": 12845
+    },
+    {
+        "id": 12164581,
+        "startTime": "22:00",
+        "imgName": "21.jpg",
+        "name": "小米Max 2 4GB+64GB 金色",
+        "tip": "6.44\"大屏/充电宝级大电量/轻薄全金属",
+        "nowPrice": 1049,
+        "fomerPrice": 1699,
+        "alertCount": 500
+    },
+    {
+        "id": 12164582,
+        "startTime": "22:00",
+        "imgName": "22.jpg",
+        "name": "小米MIX 2 8GB+128GB 黑色全陶瓷",
+        "tip": "全面屏2.0/5.99\"大屏 \/ 骁龙835旗舰处理器",
+        "nowPrice": 2599,
+        "fomerPrice": 4699,
+        "alertCount": 696
+    },
+    {
+        "id": 12164583,
+        "startTime": "22:00",
+        "imgName": "23.png",
+        "name": "小米自拍杆（线控版） 黑",
+        "tip": "即插即用，拍照快人一步",
+        "nowPrice": 1,
+        "fomerPrice": 49,
+        "alertCount": 9374
+    },
+    {
+        "id": 12164584,
+        "startTime": "22:00",
+        "imgName": "24.png",
+        "name": "米家插线板3位基础版 白色 通用",
+        "tip": "极简设计，轻松便捷",
+        "nowPrice": 1,
+        "fomerPrice": 24.9,
+        "alertCount": 16177
+    },
+    {
+        "id": 12164585,
+        "startTime": "00:00",
+        "imgName": "25.jpg",
+        "name": "小米手环3腕带 热力橙",
+        "tip": "顺滑柔软 触感舒适",
+        "nowPrice": 16.9,
+        "fomerPrice": 19.9,
+        "alertCount": 2063
+    },
+    {
+        "id": 12164586,
+        "startTime": "00:00",
+        "imgName": "26.jpg",
+        "name": "小米运动蓝牙耳机mini 白色",
+        "tip": "迷你机身, 小如蚕豆",
+        "nowPrice": 159,
+        "fomerPrice": 169,
+        "alertCount": 223
+    },
+    {
+        "id": 12164587,
+        "startTime": "00:00",
+        "imgName": "27.png",
+        "name": "小米活塞耳机 清新版 蓝色",
+        "tip": "新鲜绽放，五色可选",
+        "nowPrice": 1,
+        "fomerPrice": 29,
+        "alertCount": 11186
+    },
+    {
+        "id": 12164588,
+        "startTime": "00:00",
+        "imgName": "28.jpg",
+        "name": "小米多功能都市休闲胸包 深灰",
+        "tip": "装下你出行的所有需求",
+        "nowPrice": 59,
+        "fomerPrice": 69,
+        "alertCount": 567
+    },
+    {
+        "id": 12164589,
+        "startTime": "00:00",
+        "imgName": "29.jpg",
+        "name": "米家驱蚊器 白色",
+        "tip": "长效驱蚊 静享一整个夏天",
+        "nowPrice": 49,
+        "fomerPrice": 59,
+        "alertCount": 402
+    },
+    {
+        "id": 12164590,
+        "startTime": "00:00",
+        "imgName": "30.jpg",
+        "name": "小米手环 2 黑色",
+        "tip": "OLED 显示屏，触摸操作",
+        "nowPrice": 129,
+        "fomerPrice": 149,
+        "alertCount": 323
+    },
+    {
+        "id": 12164591,
+        "startTime": "00:00",
+        "imgName": "31.jpg",
+        "name": "米兔Hape 70粒益智积木 彩色",
+        "tip": "德国工艺，妈妈放心",
+        "nowPrice": 9.9,
+        "fomerPrice": 99,
+        "alertCount": 5287
+    },
+    {
+        "id": 12164592,
+        "startTime": "08:00",
+        "imgName": "32.jpg",
+        "name": "米家行车记录仪 黑色",
+        "tip": "晚上也可以拍清车牌",
+        "nowPrice": 309,
+        "fomerPrice": 349,
+        "alertCount": 588
+    },
+    {
+        "id": 12164593,
+        "startTime": "08:00",
+        "imgName": "33.jpg",
+        "name": "小米车载充电器快充版 银色",
+        "tip": "让爱车成为移动充电站",
+        "nowPrice": 59,
+        "fomerPrice": 69,
+        "alertCount": 341
+    },
+    {
+        "id": 12164594,
+        "startTime": "08:00",
+        "imgName": "35.jpg",
+        "name": "米兔轨道积木 电动火车套装 彩色",
+        "tip": "送给孩子的私人游乐场",
+        "nowPrice": 279,
+        "fomerPrice": 299,
+        "alertCount": 44
+    },
+    {
+        "id": 12164595,
+        "startTime": "08:00",
+        "imgName": "36.png",
+        "name": "小米电视4C 32英寸 黑色 32英寸",
+        "tip": "高清液晶屏，人工智能系统",
+        "nowPrice": 499,
+        "fomerPrice": 999,
+        "alertCount": 1794
+    },
+    {
+        "id": 12164596,
+        "startTime": "08:00",
+        "imgName": "37.png",
+        "name": "小米随身蓝牙音箱 金属银",
+        "tip": "全金属外壳，内置麦克风",
+        "nowPrice": 1,
+        "fomerPrice": 69,
+        "alertCount": 3498
+    },
+    {
+        "id": 12164597,
+        "startTime": "08:00",
+        "imgName": "38.jpg",
+        "name": "小米移动电源2C 20000mAh 白色",
+        "tip": "大容量，一个就够用",
+        "nowPrice": 129,
+        "fomerPrice": 139,
+        "alertCount": 103
+    },
+    {
+        "id": 12164598,
+        "startTime": "08:00",
+        "imgName": "39.png",
+        "name": "小米USB Type C快速充电数据线 灰色",
+        "tip": "快速充电，稳定传输",
+        "nowPrice": 1,
+        "fomerPrice": 16.9,
+        "alertCount": 1558
+    }
+]}
