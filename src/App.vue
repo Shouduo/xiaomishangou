@@ -72,8 +72,8 @@
                             @click="timeSelect(item)">
                             <em>{{item}}</em>
                             <span>
-                                <em class="specail">即将开始<br>
-                                    <a v-if="nextTime==item">距开始 {{timeLeft}}</a>
+                                <em class="specail">{{tagTitle}}<br>
+                                    <a v-if="nextTime==item">{{tagSubtitle}} {{timeLeft}}</a>
                                 </em>
                             </span>
                         </li>
@@ -117,7 +117,9 @@ export default {
             timesList: Array,
             selectTime: "",
             nextTime: "",
-            timeLeft: ""
+            timeLeft: "",
+            tagTitle: "即将开始",
+            tagSubtitle: "距开始"
         }
     },
     methods: {
@@ -159,31 +161,71 @@ export default {
             this.goodsList = response.data.goods;
 
         });
-        let currentDate, leftHours, leftMinutes, leftSeconds;
+
+        let currentDate, nextDate;
         let nextTimeHour, nextTimeMinute;
-        window.setInterval(() => {
+        let diffSeconds, leftHours, leftMinutes, leftSeconds;
+        setInterval(() => {
+            this.currentDate = new Date();
+            this.nextDate = new Date();
             this.nextTimeHour = parseInt(this.nextTime.split(":")[0]);
             this.nextTimeMinute = parseInt(this.nextTime.split(":")[1]);
-            if(this.nextTimeHour == 0) this.nextTimeHour = 24;
-            this.currentDate = new Date();
-            this.leftHours = this.nextTimeHour - this.currentDate.getHours();
-            this.leftMinutes = this.nextTimeMinute - this.currentDate.getMinutes();
-            this.leftSeconds = 59 - this.currentDate.getSeconds();
-            // console.log(this.leftHours)
-            if(this.leftHours == this.leftMinutes == this.leftSeconds == 0) {
-
+            this.nextDate.setHours(this.nextTimeHour);
+            this.nextDate.setMinutes(this.nextTimeMinute);
+            this.nextDate.setSeconds(0);
+            if (this.nextTimeHour == 0) this.nextDate.setTime(this.nextDate.getTime()+24*60*60*1000);
+            // console.log(this.nextDate)
+            // console.log(this.currentDate)
+            this.diffSeconds = Math.abs((this.nextDate.getTime() - this.currentDate.getTime()) / 1000);
+            // console.log(this.diffSeconds)
+            if (this.diffSeconds < 0 && this.diffSeconds > -(90*60)) {
+                this.diffSeconds = -this.diffSeconds;
+                this.tagTitle = "抢购中";
+                this.tagSubtitle = "距结束";
+            } else if (this.diffSeconds < -(90*60)) {
+                this.tagTitle = "抢购结束";
+                if (this.timesList.indexOf(this.nextTime) < this.timesList.length - 1) {
+                    this.nextTime = this.timesList[this.timesList.indexOf(this.nextTime)+1]
+                }
+            } else {
+                this.tagTitle = "即将开始";
+                this.tagSubtitle = "距开始";
+                // console.log("else")
             }
-            if(this.leftMinutes < 0) {
-                this.leftHours -- ;
-                this.leftMinutes += 60;
-            }
-            this.leftHours = this.leftHours.toString().padStart(2, "0");
-            this.leftMinutes = this.leftMinutes.toString().padStart(2, "0");
-            this.leftSeconds = this.leftSeconds.toString().padStart(2, "0");
+            this.leftHours = (Math.floor(this.diffSeconds / (60*60))).toString().padStart(2, "0");
+            this.leftMinutes = (Math.floor(this.diffSeconds % (60*60) / 60)).toString().padStart(2, "0");
+            this.leftSeconds = (Math.floor(this.diffSeconds % (60*60) % 60)).toString().padStart(2, "0");
             this.timeLeft = `${this.leftHours}:${this.leftMinutes}:${this.leftSeconds}`;
-        }, 1000);
-        
+            // console.log(this.leftHours)
+
+        }, 1000)
+
+
+        // let currentDate, leftHours, leftMinutes, leftSeconds;
+        // let nextTimeHour, nextTimeMinute;
+        // window.setInterval(() => {
+        //     this.nextTimeHour = parseInt(this.nextTime.split(":")[0]);
+        //     this.nextTimeMinute = parseInt(this.nextTime.split(":")[1]);
+        //     if(this.nextTimeHour == 0) this.nextTimeHour = 24;
+        //     this.currentDate = new Date();
+        //     this.leftHours = this.nextTimeHour - this.currentDate.getHours();
+        //     this.leftMinutes = this.nextTimeMinute - this.currentDate.getMinutes();
+        //     this.leftSeconds = 59 - this.currentDate.getSeconds();
+        //     // console.log(this.leftHours)
+        //     if(this.leftHours == this.leftMinutes == this.leftSeconds == 0) {
+
+        //     }
+        //     if(this.leftMinutes < 0) {
+        //         this.leftHours -- ;
+        //         this.leftMinutes += 60;
+        //     }
+        //     this.leftHours = this.leftHours.toString().padStart(2, "0");
+        //     this.leftMinutes = this.leftMinutes.toString().padStart(2, "0");
+        //     this.leftSeconds = this.leftSeconds.toString().padStart(2, "0");
+        //     this.timeLeft = `${this.leftHours}:${this.leftMinutes}:${this.leftSeconds}`;
+        // }, 1000);
         // console.log(this.timeLeft);
+
     }
 }
 </script>
