@@ -7,7 +7,10 @@
         "tip": "方形立体设计",
         "nowPrice": 9.9,
         "fomerPrice": 149,
-        "alertCount": 24087
+        "alertCount": 24087,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164565,
@@ -17,7 +20,10 @@
         "tip": "让普通家电变智能",
         "nowPrice": 1,
         "fomerPrice": 59,
-        "alertCount": 11851
+        "alertCount": 11851,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164566,
@@ -27,7 +33,10 @@
         "tip": "时刻定位，守护你所爱",
         "nowPrice": 159,
         "fomerPrice": 169,
-        "alertCount": 464
+        "alertCount": 464,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164567,
@@ -37,7 +46,10 @@
         "tip": "长效安全，精工品质",
         "nowPrice": 129,
         "fomerPrice": 149,
-        "alertCount": 247
+        "alertCount": 247,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164568,
@@ -47,7 +59,10 @@
         "tip": "一杯水，是一家人的安心",
         "nowPrice": 89,
         "fomerPrice": 99,
-        "alertCount": 806
+        "alertCount": 806,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164569,
@@ -57,7 +72,10 @@
         "tip": "迷你机身, 小如蚕豆",
         "nowPrice": 159,
         "fomerPrice": 169,
-        "alertCount": 280
+        "alertCount": 280,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164570,
@@ -67,7 +85,10 @@
         "tip": "精选故事，小巧便捷",
         "nowPrice": 139,
         "fomerPrice": 149,
-        "alertCount": 102
+        "alertCount": 102,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164571,
@@ -77,7 +98,10 @@
         "tip": "高效净化车内空气",
         "nowPrice": 379,
         "fomerPrice": 499,
-        "alertCount": 168
+        "alertCount": 168,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164572,
@@ -87,7 +111,10 @@
         "tip": "智能联动，改善室内温湿度",
         "nowPrice": 1,
         "fomerPrice": 49,
-        "alertCount": 3358
+        "alertCount": 3358,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164573,
@@ -97,7 +124,10 @@
         "tip": "冷暖干湿，一目了然",
         "nowPrice": 59,
         "fomerPrice": 69,
-        "alertCount": 161
+        "alertCount": 161,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164574,
@@ -107,7 +137,10 @@
         "tip": "准确检测家中水质纯度",
         "nowPrice": 29,
         "fomerPrice": 39,
-        "alertCount": 247
+        "alertCount": 247,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164575,
@@ -117,7 +150,10 @@
         "tip": "用光线，还原理想生活",
         "nowPrice": 379,
         "fomerPrice": 399,
-        "alertCount": 57
+        "alertCount": 57,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164576,
@@ -127,7 +163,10 @@
         "tip": "3秒吸水，杀菌无刺激",
         "nowPrice": 1,
         "fomerPrice": 19.9,
-        "alertCount": 3340
+        "alertCount": 3340,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164577,
@@ -137,7 +176,10 @@
         "tip": "高效动力，刷的干净",
         "nowPrice": 178,
         "fomerPrice": 199,
-        "alertCount": 971
+        "alertCount": 971,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164578,
@@ -147,7 +189,10 @@
         "tip": "男人必备的第二把剃须刀",
         "nowPrice": 168,
         "fomerPrice": 179,
-        "alertCount": 538
+        "alertCount": 538,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164579,
@@ -157,7 +202,10 @@
         "tip": "一支高效清洁的刷头",
         "nowPrice": 1,
         "fomerPrice": 69,
-        "alertCount": 10253
+        "alertCount": 10253,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164580,
@@ -167,7 +215,10 @@
         "tip": "轻薄全金属机身，256GB SSD",
         "nowPrice": 2499,
         "fomerPrice": 4499,
-        "alertCount": 12845
+        "alertCount": 12845,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164581,
@@ -177,7 +228,10 @@
         "tip": "6.44\"大屏/充电宝级大电量/轻薄全金属",
         "nowPrice": 1049,
         "fomerPrice": 1699,
-        "alertCount": 500
+        "alertCount": 500,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164582,
@@ -187,7 +241,10 @@
         "tip": "全面屏2.0/5.99\"大屏 \/ 骁龙835旗舰处理器",
         "nowPrice": 2599,
         "fomerPrice": 4699,
-        "alertCount": 696
+        "alertCount": 696,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164583,
@@ -197,7 +254,10 @@
         "tip": "即插即用，拍照快人一步",
         "nowPrice": 1,
         "fomerPrice": 49,
-        "alertCount": 9374
+        "alertCount": 9374,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164584,
@@ -207,7 +267,10 @@
         "tip": "极简设计，轻松便捷",
         "nowPrice": 1,
         "fomerPrice": 24.9,
-        "alertCount": 16177
+        "alertCount": 16177,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164585,
@@ -217,7 +280,10 @@
         "tip": "顺滑柔软 触感舒适",
         "nowPrice": 16.9,
         "fomerPrice": 19.9,
-        "alertCount": 2063
+        "alertCount": 2063,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164586,
@@ -227,7 +293,10 @@
         "tip": "迷你机身, 小如蚕豆",
         "nowPrice": 159,
         "fomerPrice": 169,
-        "alertCount": 223
+        "alertCount": 223,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164587,
@@ -237,7 +306,10 @@
         "tip": "新鲜绽放，五色可选",
         "nowPrice": 1,
         "fomerPrice": 29,
-        "alertCount": 11186
+        "alertCount": 11186,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164588,
@@ -247,7 +319,10 @@
         "tip": "装下你出行的所有需求",
         "nowPrice": 59,
         "fomerPrice": 69,
-        "alertCount": 567
+        "alertCount": 567,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164589,
@@ -257,7 +332,10 @@
         "tip": "长效驱蚊 静享一整个夏天",
         "nowPrice": 49,
         "fomerPrice": 59,
-        "alertCount": 402
+        "alertCount": 402,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164590,
@@ -267,7 +345,10 @@
         "tip": "OLED 显示屏，触摸操作",
         "nowPrice": 129,
         "fomerPrice": 149,
-        "alertCount": 323
+        "alertCount": 323,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164591,
@@ -277,7 +358,10 @@
         "tip": "德国工艺，妈妈放心",
         "nowPrice": 9.9,
         "fomerPrice": 99,
-        "alertCount": 5287
+        "alertCount": 5287,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164592,
@@ -287,7 +371,10 @@
         "tip": "晚上也可以拍清车牌",
         "nowPrice": 309,
         "fomerPrice": 349,
-        "alertCount": 588
+        "alertCount": 588,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164593,
@@ -297,7 +384,10 @@
         "tip": "让爱车成为移动充电站",
         "nowPrice": 59,
         "fomerPrice": 69,
-        "alertCount": 341
+        "alertCount": 341,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164594,
@@ -307,7 +397,10 @@
         "tip": "送给孩子的私人游乐场",
         "nowPrice": 279,
         "fomerPrice": 299,
-        "alertCount": 44
+        "alertCount": 44,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164595,
@@ -317,7 +410,10 @@
         "tip": "高清液晶屏，人工智能系统",
         "nowPrice": 499,
         "fomerPrice": 999,
-        "alertCount": 1794
+        "alertCount": 1794,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164596,
@@ -327,7 +423,10 @@
         "tip": "全金属外壳，内置麦克风",
         "nowPrice": 1,
         "fomerPrice": 69,
-        "alertCount": 3498
+        "alertCount": 3498,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164597,
@@ -337,7 +436,10 @@
         "tip": "大容量，一个就够用",
         "nowPrice": 129,
         "fomerPrice": 139,
-        "alertCount": 103
+        "alertCount": 103,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     },
     {
         "id": 12164598,
@@ -347,6 +449,9 @@
         "tip": "快速充电，稳定传输",
         "nowPrice": 1,
         "fomerPrice": 16.9,
-        "alertCount": 1558
+        "alertCount": 1558,
+        "amount": 100,
+        "sold": 0,
+        "status": "hanging" 
     }
 ]}

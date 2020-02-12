@@ -66,29 +66,20 @@
             <div class="container">
                 <div class="seckill-nav " id="scro">
                     <ul id="tabs">
-                        <li :class="{active:selectTime==item}"
-                            v-for="item in timesList"
-                            v-bind:key="item"
-                            @click="timeSelect(item)">
-                            <em>{{item}}</em>
+                        <li :class="{active:selectTime==item.startTime}" v-for="item in timesList" v-bind:key="item.startTime" @click="timeSelect(item.startTime)">
+                            <em>{{item.startTime}}</em>
                             <span>
-                                <em class="specail">{{tagTitle}}<br>
-                                    <a v-if="nextTime==item">{{tagSubtitle}} {{timeLeft}}</a>
-                                </em>
-                            </span>
+                                    <em class="specail">{{item.tagTitle}}<br>
+                                        <a v-show="nextTime==item.startTime">{{item.subTitle}} {{timeLeft}}</a>
+                                    </em>
+                                </span>
                         </li>
-
-                        <!-- <li class=""><em>20:00</em><span>即将开始</span></li>
-                        <li class=""><em>22:00</em><span>即将开始</span></li> -->
-
-                        <!-- <li class=""><em>00:00</em><span>即将开始</span></li>
-                        <li class=""><em>08:00</em><span>即将开始</span></li> -->
                     </ul>
                 </div>
                 <div class="seckill-goods" id="uls">
                     <ul class="clear-fixed active">
                         <li v-for="item in shownList" v-bind:key="item.id">
-                            <Item :itemInfo="item"/>
+                            <Item :itemInfo="item" />
                         </li>
                     </ul>
                     <p class="seckill-notice">*小米闪购活动规则：小米闪购商品不享受该商品在小米商城的其他优惠政策（包括但不限于优惠券、赠品、满减、满赠等）<br> 温馨提示：因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，如您发现活动商品标价或促销信息有异常，请您立即联系小米客服，以便我们及时补正。
@@ -117,9 +108,7 @@ export default {
             timesList: Array,
             selectTime: "",
             nextTime: "",
-            timeLeft: "",
-            tagTitle: "即将开始",
-            tagSubtitle: "距开始"
+            timeLeft: ""
         }
     },
     methods: {
@@ -135,70 +124,119 @@ export default {
         }
     },
     mounted() {
+        let durationMinutes = 90;
         this.$http.get('./goods.json').then((response) => {
             // console.log(response.data);
             this.timesList = response.data.goods.map((item) => {
-              return item.startTime;
+                return item.startTime;
             });
             this.timesList = [...new Set(this.timesList)];
-            this.timesList.sort();
-            let date = new Date();
-            let i;
-            for(i=0; i<this.timesList.length; i++) {
-                let tagTime = parseInt(this.timesList[i].split(":").join(""));
-                let nowTime = parseInt(date.getHours().toString() + date.getMinutes().toString().padStart(2, "0"));
-                // console.log(tagTime +"-" +nowTime)
-                if(tagTime - nowTime > 0) break;
-            }
-            // console.log(i)
-            this.timesList = [].concat(this.timesList.splice(i),this.timesList.splice(0,i));
-            this.selectTime = this.nextTime = this.timesList[0];
-            
-            
-            // this.goodsList = response.data.goods.filter((item) => {
-            //     return item.selectTime == this.selectTime;
-            // });
+            // console.log(this.timesList, 1)
+            this.timesList = this.timesList.map((item) => {
+                let nowDate = new Date();
+                let startDate = new Date();
+                startDate.setHours(item.split(":")[0]);
+                    startDate.setMinutes(item.split(":")[1]);
+                    startDate.setSeconds(0);
+                    startDate.setMilliseconds(0);
+                if (startDate.getTime() + durationMinutes*60*1000 < nowDate.getTime()) {
+                    startDate.setTime(startDate.getTime() + 24*60*60*1000);
+                }
+                return {
+                    "startTime": item,
+                    "startMilliseconds": startDate.getTime(),
+                    "tagTitle": "即将开始",
+                    "subTitle": "距开始"
+                };
+            })
+            this.timesList.sort((a, b) => {
+                return a.startMilliseconds - b.startMilliseconds;
+            });
+            // console.log(this.timesList)
+            this.selectTime = this.nextTime = this.timesList[0].startTime;
             this.goodsList = response.data.goods;
-
         });
 
-        let currentDate, nextDate;
-        let nextTimeHour, nextTimeMinute;
+        // let durationMinutes = 90;
+        let currentDate;
+        let tagIndex = 0;
         let diffSeconds, leftHours, leftMinutes, leftSeconds;
         setInterval(() => {
+            if (this.tagIndex == this.timesList.length - 1) this.tagIndex = 0;
             this.currentDate = new Date();
-            this.nextDate = new Date();
-            this.nextTimeHour = parseInt(this.nextTime.split(":")[0]);
-            this.nextTimeMinute = parseInt(this.nextTime.split(":")[1]);
-            this.nextDate.setHours(this.nextTimeHour);
-            this.nextDate.setMinutes(this.nextTimeMinute);
-            this.nextDate.setSeconds(0);
-            if (this.nextTimeHour == 0) this.nextDate.setTime(this.nextDate.getTime()+24*60*60*1000);
-            // console.log(this.nextDate)
-            // console.log(this.currentDate)
-            this.diffSeconds = Math.abs((this.nextDate.getTime() - this.currentDate.getTime()) / 1000);
-            // console.log(this.diffSeconds)
-            if (this.diffSeconds < 0 && this.diffSeconds > -(90*60)) {
-                this.diffSeconds = -this.diffSeconds;
-                this.tagTitle = "抢购中";
-                this.tagSubtitle = "距结束";
-            } else if (this.diffSeconds < -(90*60)) {
-                this.tagTitle = "抢购结束";
-                if (this.timesList.indexOf(this.nextTime) < this.timesList.length - 1) {
-                    this.nextTime = this.timesList[this.timesList.indexOf(this.nextTime)+1]
-                }
+            this.currentDate.setTime(this.currentDate.getTime() + 93*60*1000);
+            this.diffSeconds = Math.floor((this.currentDate.getTime() - this.timesList[tagIndex].startMilliseconds)/1000);
+            console.log(this.diffSeconds)
+            if (this.diffSeconds < 0) {
+                this.timesList[tagIndex].tagTitle = "即将开始";
+                this.timesList[tagIndex].subTitle = "距开始";
+                console.log("upcoming")
+            } else if (this.diffSeconds > 0 && this.diffSeconds < durationMinutes*60) {
+                this.timesList[tagIndex].tagTitle = "抢购中";
+                this.timesList[tagIndex].subTitle = "距结束";
+                this.diffSeconds = durationMinutes*60 - this.diffSeconds;
+                console.log("ongoing")
             } else {
-                this.tagTitle = "即将开始";
-                this.tagSubtitle = "距开始";
-                // console.log("else")
+                console.log(durationMinutes)
+                this.timesList[tagIndex].tagTitle = "抢购结束";
+                this.timesList[tagIndex].subTitle = "";
+                this.tagIndex++;
+                this.nextTime = this.timesList[tagIndex].startTime;
+                console.log("overdue")
             }
-            this.leftHours = (Math.floor(this.diffSeconds / (60*60))).toString().padStart(2, "0");
-            this.leftMinutes = (Math.floor(this.diffSeconds % (60*60) / 60)).toString().padStart(2, "0");
-            this.leftSeconds = (Math.floor(this.diffSeconds % (60*60) % 60)).toString().padStart(2, "0");
+            this.leftHours = (Math.floor(Math.abs(this.diffSeconds) / (60 * 60))).toString().padStart(2, "0");
+            this.leftMinutes = (Math.floor(Math.abs(this.diffSeconds) % (60 * 60) / 60)).toString().padStart(2, "0");
+            this.leftSeconds = (Math.floor(Math.abs(this.diffSeconds) % (60 * 60) % 60)).toString().padStart(2, "0");
             this.timeLeft = `${this.leftHours}:${this.leftMinutes}:${this.leftSeconds}`;
-            // console.log(this.leftHours)
+        }, 1000);
+        // let currentDate, nextDate;
+        // let nextTimeHour, nextTimeMinute;
+        // let diffSeconds, leftHours, leftMinutes, leftSeconds;
+        // let timesKey = 0;
+        // setInterval(() => {
+        //     if (this.timesKey >= this.timesList.length - 1) this.timesKey = 0;
+        //     this.currentDate = new Date();
+        //     // this.currentDate.setTime(this.currentDate.getTime() + 103*60*1000)
+        //     this.nextDate = new Date();
+        //     this.nextTimeHour = parseInt(this.timesList[timesKey].startTime.split(":")[0]);
+        //     this.nextTimeMinute = parseInt(this.timesList[timesKey].startTime.split(":")[1]);
+        //     this.nextDate.setHours(this.nextTimeHour);
+        //     this.nextDate.setMinutes(this.nextTimeMinute);
+        //     this.nextDate.setSeconds(0);
+        //     if (this.nextTimeHour == 0 && Math.abs(this.currentDate.getTime() - this.nextDate.getTime()) > 90 * 60 * 1000) {
+        //         this.nextDate.setTime(this.nextDate.getTime() + 24 * 60 * 60 * 1000);
+        //     }
+        //     // console.log(this.nextDate)
+        //     // console.log(this.currentDate)
+        //     this.diffSeconds = (this.nextDate.getTime() - this.currentDate.getTime()) / 1000;
+        //     // console.log(this.diffSeconds)
+        //     if (this.diffSeconds < 0 && this.diffSeconds > -(90 * 60)) {
+        //         // this.diffSeconds = -this.diffSeconds;
+        //         this.timesList[timesKey].tagTitle = "抢购中";
+        //         this.timesList[timesKey].tagSubtitle = "距结束";
+        //         this.diffSeconds += (90 * 60);
+        //         console.log("抢购中")
+        //     } else if (this.diffSeconds < -(90 * 60)) {
+        //         this.timesList[timesKey].tagTitle = "抢购结束";
+        //         // if (this.timesList.indexOf(this.nextTime) < this.timesList.length - 1) {
+        //         //     this.nextTime = this.timesList[this.timesList.indexOf(this.nextTime)+1]
+        //         // }
+        //         this.timesKey++;
+        //         this.nextTime = this.timesList[timesKey].startTime;
+        //         console.log(this.nextTime);
+        //         console.log("抢购结束")
+        //     } else {
+        //         this.timesList[timesKey].tagTitle = "即将开始";
+        //         this.timesList[timesKey].tagSubtitle = "距开始";
+        //         console.log("即将开始")
+        //     }
+        //     this.leftHours = (Math.floor(Math.abs(this.diffSeconds) / (60 * 60))).toString().padStart(2, "0");
+        //     this.leftMinutes = (Math.floor(Math.abs(this.diffSeconds) % (60 * 60) / 60)).toString().padStart(2, "0");
+        //     this.leftSeconds = (Math.floor(Math.abs(this.diffSeconds) % (60 * 60) % 60)).toString().padStart(2, "0");
+        //     this.timeLeft = `${this.leftHours}:${this.leftMinutes}:${this.leftSeconds}`;
+        //     // console.log(this.leftHours)
 
-        }, 1000)
+        // }, 1000)
 
 
         // let currentDate, leftHours, leftMinutes, leftSeconds;
@@ -238,8 +276,8 @@ export default {
     // color: #2c3e50;
     // border: 1px solid red;
 }
-// @import './iconfont.css';
 
+// @import './iconfont.css';
 // @font-face {
 //   font-family: 'iconfont';
 //   src: url('iconfont.eot');
@@ -249,7 +287,6 @@ export default {
 //       url('iconfont.ttf') format('truetype'),
 //       url('iconfont.svg#iconfont') format('svg');
 // }
-
 // .iconfont {
 //   font-family: "iconfont" !important;
 //   font-size: 16px;
@@ -257,7 +294,6 @@ export default {
 //   -webkit-font-smoothing: antialiased;
 //   -moz-osx-font-smoothing: grayscale;
 // }
-
 body {
     margin: 0;
     padding: 0;

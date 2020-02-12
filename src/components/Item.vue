@@ -6,11 +6,27 @@
         <div class="info">
             <a href="" class="name">{{itemInfo.name}}</a>
             <p class="tips">{{itemInfo.tip}}</p>
-            <p class="price">{{itemInfo.nowPrice}}元
+            <div v-show="itemInfo.status!='hanging'">
+                <progress max="100" value="50"/>
+                <p class="percentage">50%</p>
+                <p class="price">{{itemInfo.nowPrice}}元
+                    <del>{{itemInfo.fomerPrice}}元</del>
+                </p>
+                <a href="" class="btn" style="background-color: #f13939;" v-show="itemInfo.status=='ongoing'">立即抢购</a>
+                <a href="" class="btn" style="background-color: #f13939;" v-show="itemInfo.status=='overdue'">抢购结束</a>
+            </div>
+            <div v-show="itemInfo.status=='hanging'">
+                <p class="price">{{itemInfo.nowPrice}}元
+                    <del>{{itemInfo.fomerPrice}}元</del>
+                </p>
+                <a href="" class="btn" v-show="itemInfo.status=='hanging'">提醒我</a>
+                <p class="person">已有{{itemInfo.alertCount}}人设置提醒</p>
+            </div>
+            <!-- <p class="price">{{itemInfo.nowPrice}}元
                 <del>{{itemInfo.fomerPrice}}元</del>
             </p>
-            <a href="" class="btn">提醒我</a>
-            <p class="person">已有{{itemInfo.alertCount}}人设置提醒</p>
+            <a href="" class="btn">{{itemInfo.btnText}}</a>
+            <p class="person" v-show="itemInfo.btnText == '提醒我'">已有{{itemInfo.alertCount}}人设置提醒</p> -->
         </div>
     </div>
 </template>
@@ -74,6 +90,30 @@ export default {
         overflow: hidden;
         text-overflow: ellipsis;
     }
+    progress {
+        // -webkit-appearance: none;
+        // -moz-appearance: none;
+        appearance: none;
+        height: 6px;
+        width: 150px;
+        display: inline-block;
+        margin: 20px 0 0 0;
+        // border: none;
+    }
+    progress::-webkit-progress-bar {
+         background-color:#f5f5f5;
+    }
+    progress::-webkit-progress-value  {
+         background-color:#f13939;
+    }
+    .percentage {
+        display: inline-block;
+        font-size: 12px;
+        line-height: 1;
+        color: #666;
+        transform: translate(4px, 4px);
+        margin: 0;
+    }
     .price {
         font-size: 16px;
         line-height: 1;
@@ -90,15 +130,15 @@ export default {
     .btn {
         display: inline-block;
         width: 118px;
-        height: 28px;
-        line-height: 28px;
+        height: 30px;
+        line-height: 30px;
         color: #fff;
         font-size: 14px;
         text-align: center;
         text-decoration: none;
         background: #83c44e;
         margin-top: 20px;
-        border: 1px solid #83c44e;
+        // border: 1px solid #83c44e;
     }
     .person {
       font-size: 12px;
