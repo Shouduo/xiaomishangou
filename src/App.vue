@@ -108,7 +108,9 @@ export default {
             timesList: Array,
             selectTime: "",
             nextTime: "",
-            timeLeft: ""
+            timeLeft: "",
+            durationMinutes: 90,
+            tagIndex: 0
         }
     },
     methods: {
@@ -124,14 +126,11 @@ export default {
         }
     },
     mounted() {
-        let durationMinutes = 90;
         this.$http.get('./goods.json').then((response) => {
-            // console.log(response.data);
             this.timesList = response.data.goods.map((item) => {
                 return item.startTime;
             });
             this.timesList = [...new Set(this.timesList)];
-            // console.log(this.timesList, 1)
             this.timesList = this.timesList.map((item) => {
                 let nowDate = new Date();
                 let startDate = new Date();
@@ -139,7 +138,7 @@ export default {
                     startDate.setMinutes(item.split(":")[1]);
                     startDate.setSeconds(0);
                     startDate.setMilliseconds(0);
-                if (startDate.getTime() + durationMinutes*60*1000 < nowDate.getTime()) {
+                if (startDate.getTime() + this.durationMinutes*60*1000 < nowDate.getTime()) {
                     startDate.setTime(startDate.getTime() + 24*60*60*1000);
                 }
                 return {
@@ -152,118 +151,37 @@ export default {
             this.timesList.sort((a, b) => {
                 return a.startMilliseconds - b.startMilliseconds;
             });
-            // console.log(this.timesList)
             this.selectTime = this.nextTime = this.timesList[0].startTime;
             this.goodsList = response.data.goods;
         });
-
-        // let durationMinutes = 90;
-        let currentDate;
-        let tagIndex = 0;
-        let diffSeconds, leftHours, leftMinutes, leftSeconds;
+   
         setInterval(() => {
             if (this.tagIndex == this.timesList.length - 1) this.tagIndex = 0;
-            this.currentDate = new Date();
-            this.currentDate.setTime(this.currentDate.getTime() + 93*60*1000);
-            this.diffSeconds = Math.floor((this.currentDate.getTime() - this.timesList[tagIndex].startMilliseconds)/1000);
-            console.log(this.diffSeconds)
-            if (this.diffSeconds < 0) {
-                this.timesList[tagIndex].tagTitle = "即将开始";
-                this.timesList[tagIndex].subTitle = "距开始";
-                console.log("upcoming")
-            } else if (this.diffSeconds > 0 && this.diffSeconds < durationMinutes*60) {
-                this.timesList[tagIndex].tagTitle = "抢购中";
-                this.timesList[tagIndex].subTitle = "距结束";
-                this.diffSeconds = durationMinutes*60 - this.diffSeconds;
-                console.log("ongoing")
+            let currentDate = new Date();
+            currentDate.setTime(currentDate.getTime() + 13*60*1000);
+            let diffSeconds = Math.floor((currentDate.getTime() - this.timesList[this.tagIndex].startMilliseconds)/1000);
+            // console.log(diffSeconds)
+            if (diffSeconds < 0) {
+                this.timesList[this.tagIndex].tagTitle = "即将开始";
+                this.timesList[this.tagIndex].subTitle = "距开始";
+                // console.log("upcoming")
+            } else if (diffSeconds > 0 && diffSeconds < this.durationMinutes*60) {
+                this.timesList[this.tagIndex].tagTitle = "抢购中";
+                this.timesList[this.tagIndex].subTitle = "距结束";
+                diffSeconds = this.durationMinutes*60 - diffSeconds;
+                // console.log("ongoing")
             } else {
-                console.log(durationMinutes)
-                this.timesList[tagIndex].tagTitle = "抢购结束";
-                this.timesList[tagIndex].subTitle = "";
+                this.timesList[this.tagIndex].tagTitle = "抢购结束";
+                this.timesList[this.tagIndex].subTitle = "";
                 this.tagIndex++;
-                this.nextTime = this.timesList[tagIndex].startTime;
-                console.log("overdue")
+                this.nextTime = this.timesList[this.tagIndex].startTime;
+                // console.log("overdue")
             }
-            this.leftHours = (Math.floor(Math.abs(this.diffSeconds) / (60 * 60))).toString().padStart(2, "0");
-            this.leftMinutes = (Math.floor(Math.abs(this.diffSeconds) % (60 * 60) / 60)).toString().padStart(2, "0");
-            this.leftSeconds = (Math.floor(Math.abs(this.diffSeconds) % (60 * 60) % 60)).toString().padStart(2, "0");
-            this.timeLeft = `${this.leftHours}:${this.leftMinutes}:${this.leftSeconds}`;
+            let leftHours = (Math.floor(Math.abs(diffSeconds) / (60 * 60))).toString().padStart(2, "0");
+            let leftMinutes = (Math.floor(Math.abs(diffSeconds) % (60 * 60) / 60)).toString().padStart(2, "0");
+            let leftSeconds = (Math.floor(Math.abs(diffSeconds) % (60 * 60) % 60)).toString().padStart(2, "0");
+            this.timeLeft = `${leftHours}:${leftMinutes}:${leftSeconds}`;
         }, 1000);
-        // let currentDate, nextDate;
-        // let nextTimeHour, nextTimeMinute;
-        // let diffSeconds, leftHours, leftMinutes, leftSeconds;
-        // let timesKey = 0;
-        // setInterval(() => {
-        //     if (this.timesKey >= this.timesList.length - 1) this.timesKey = 0;
-        //     this.currentDate = new Date();
-        //     // this.currentDate.setTime(this.currentDate.getTime() + 103*60*1000)
-        //     this.nextDate = new Date();
-        //     this.nextTimeHour = parseInt(this.timesList[timesKey].startTime.split(":")[0]);
-        //     this.nextTimeMinute = parseInt(this.timesList[timesKey].startTime.split(":")[1]);
-        //     this.nextDate.setHours(this.nextTimeHour);
-        //     this.nextDate.setMinutes(this.nextTimeMinute);
-        //     this.nextDate.setSeconds(0);
-        //     if (this.nextTimeHour == 0 && Math.abs(this.currentDate.getTime() - this.nextDate.getTime()) > 90 * 60 * 1000) {
-        //         this.nextDate.setTime(this.nextDate.getTime() + 24 * 60 * 60 * 1000);
-        //     }
-        //     // console.log(this.nextDate)
-        //     // console.log(this.currentDate)
-        //     this.diffSeconds = (this.nextDate.getTime() - this.currentDate.getTime()) / 1000;
-        //     // console.log(this.diffSeconds)
-        //     if (this.diffSeconds < 0 && this.diffSeconds > -(90 * 60)) {
-        //         // this.diffSeconds = -this.diffSeconds;
-        //         this.timesList[timesKey].tagTitle = "抢购中";
-        //         this.timesList[timesKey].tagSubtitle = "距结束";
-        //         this.diffSeconds += (90 * 60);
-        //         console.log("抢购中")
-        //     } else if (this.diffSeconds < -(90 * 60)) {
-        //         this.timesList[timesKey].tagTitle = "抢购结束";
-        //         // if (this.timesList.indexOf(this.nextTime) < this.timesList.length - 1) {
-        //         //     this.nextTime = this.timesList[this.timesList.indexOf(this.nextTime)+1]
-        //         // }
-        //         this.timesKey++;
-        //         this.nextTime = this.timesList[timesKey].startTime;
-        //         console.log(this.nextTime);
-        //         console.log("抢购结束")
-        //     } else {
-        //         this.timesList[timesKey].tagTitle = "即将开始";
-        //         this.timesList[timesKey].tagSubtitle = "距开始";
-        //         console.log("即将开始")
-        //     }
-        //     this.leftHours = (Math.floor(Math.abs(this.diffSeconds) / (60 * 60))).toString().padStart(2, "0");
-        //     this.leftMinutes = (Math.floor(Math.abs(this.diffSeconds) % (60 * 60) / 60)).toString().padStart(2, "0");
-        //     this.leftSeconds = (Math.floor(Math.abs(this.diffSeconds) % (60 * 60) % 60)).toString().padStart(2, "0");
-        //     this.timeLeft = `${this.leftHours}:${this.leftMinutes}:${this.leftSeconds}`;
-        //     // console.log(this.leftHours)
-
-        // }, 1000)
-
-
-        // let currentDate, leftHours, leftMinutes, leftSeconds;
-        // let nextTimeHour, nextTimeMinute;
-        // window.setInterval(() => {
-        //     this.nextTimeHour = parseInt(this.nextTime.split(":")[0]);
-        //     this.nextTimeMinute = parseInt(this.nextTime.split(":")[1]);
-        //     if(this.nextTimeHour == 0) this.nextTimeHour = 24;
-        //     this.currentDate = new Date();
-        //     this.leftHours = this.nextTimeHour - this.currentDate.getHours();
-        //     this.leftMinutes = this.nextTimeMinute - this.currentDate.getMinutes();
-        //     this.leftSeconds = 59 - this.currentDate.getSeconds();
-        //     // console.log(this.leftHours)
-        //     if(this.leftHours == this.leftMinutes == this.leftSeconds == 0) {
-
-        //     }
-        //     if(this.leftMinutes < 0) {
-        //         this.leftHours -- ;
-        //         this.leftMinutes += 60;
-        //     }
-        //     this.leftHours = this.leftHours.toString().padStart(2, "0");
-        //     this.leftMinutes = this.leftMinutes.toString().padStart(2, "0");
-        //     this.leftSeconds = this.leftSeconds.toString().padStart(2, "0");
-        //     this.timeLeft = `${this.leftHours}:${this.leftMinutes}:${this.leftSeconds}`;
-        // }, 1000);
-        // console.log(this.timeLeft);
-
     }
 }
 </script>
