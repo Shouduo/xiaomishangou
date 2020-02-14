@@ -64,25 +64,25 @@
         <div class="seckill">
             <div class="seckill-head"></div>
             <div class="container">
-                <div class="seckill-nav " id="scro">
-                    <ul id="tabs">
+                <div class="seckill-nav" id="seckill-nav">
+                    <ul id="tabs" :class="{is_fixed:isFixed}">
                         <li :class="{active:selectTime==item.startTime}" v-for="item in timesList" v-bind:key="item.startTime" @click="timeSelect(item.startTime)">
                             <em>{{item.startTime}}</em>
                             <span>
-                                    <em class="specail">{{item.tagTitle}}<br>
-                                        <a v-show="nextTime==item.startTime">{{item.subTitle}} {{timeLeft}}</a>
-                                    </em>
-                                </span>
+                                        <em class="specail">{{item.tagTitle}}<br>
+                                            <a v-show="nextTime==item.startTime">{{item.subTitle}} {{timeLeft}}</a>
+                                        </em>
+                                    </span>
                         </li>
                     </ul>
                 </div>
                 <div class="seckill-goods" id="uls">
                     <ul class="clear-fixed active">
                         <li v-for="item in shownList" v-bind:key="item.id">
-                            <Item :itemInfo="item" />
+                            <Item :itemInfo="item" class="seckill-good" />
                         </li>
                     </ul>
-                    <p class="seckill-notice">*小米闪购活动规则：小米闪购商品不享受该商品在小米商城的其他优惠政策（包括但不限于优惠券、赠品、满减、满赠等）<br> 温馨提示：因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，如您发现活动商品标价或促销信息有异常，请您立即联系小米客服，以便我们及时补正。
+                    <p class="seckill-notice">*小米秒杀活动规则： <br/>1.秒杀商品是否参加活动、最终秒杀成功的商品，以订单结算页显示为准，活动包括但不限于优惠券、赠品、满减、满赠等；<br/>2.秒杀商品数量有限，活动以下单支付成功为准，请加入购物车后尽快下单支付; <br/>3.秒杀价不含运费，最终以订单结算页价格为准； <br/>4.订单中商品的数量、颜色、型号等，以订单结算页为准。 <br/>温馨提示：因可能存在系统缓存、页面更新导致价格变动异常等不确定性情况出现，如您发现活动商品标价或促销信息有异常，请您立即联系小米客服，以便我们及时补正。
                     </p>
                 </div>
             </div>
@@ -110,12 +110,18 @@ export default {
             nextTime: "",
             timeLeft: "",
             durationMinutes: 90,
-            tagIndex: 0
+            tagIndex: 0,
+            isFixed: false,
+            offsetTop: 0
         }
     },
     methods: {
-        timeSelect: function(time) {
+        timeSelect(time) {
             this.selectTime = time;
+        },
+        initHeight() {
+            let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
+            this.isFixed = scrollTop > this.offsetTop? true:false;
         }
     },
     computed: {
@@ -135,11 +141,11 @@ export default {
                 let nowDate = new Date();
                 let startDate = new Date();
                 startDate.setHours(item.split(":")[0]);
-                    startDate.setMinutes(item.split(":")[1]);
-                    startDate.setSeconds(0);
-                    startDate.setMilliseconds(0);
-                if (startDate.getTime() + this.durationMinutes*60*1000 < nowDate.getTime()) {
-                    startDate.setTime(startDate.getTime() + 24*60*60*1000);
+                startDate.setMinutes(item.split(":")[1]);
+                startDate.setSeconds(0);
+                startDate.setMilliseconds(0);
+                if (startDate.getTime() + this.durationMinutes * 60 * 1000 < nowDate.getTime()) {
+                    startDate.setTime(startDate.getTime() + 24 * 60 * 60 * 1000);
                 }
                 return {
                     "startTime": item,
@@ -151,30 +157,62 @@ export default {
             this.timesList.sort((a, b) => {
                 return a.startMilliseconds - b.startMilliseconds;
             });
+            this.timesList = this.timesList.splice(0, 5);
             this.selectTime = this.nextTime = this.timesList[0].startTime;
-            this.goodsList = response.data.goods;
+            this.goodsList = response.data.goods.map((item) => {
+                return Object.assign(item, { "alertSet": false, "purchased": false });
+            });
         });
-   
-        setInterval(() => {
-            if (this.tagIndex == this.timesList.length - 1) this.tagIndex = 0;
+
+        let i = 0; //test
+        let statusFlag;
+        let countdonw = setInterval(() => {
+            if (this.tagIndex == this.timesList.length) clearInterval(countdonw);
             let currentDate = new Date();
-            currentDate.setTime(currentDate.getTime() + 13*60*1000);
-            let diffSeconds = Math.floor((currentDate.getTime() - this.timesList[this.tagIndex].startMilliseconds)/1000);
+
+            currentDate.setTime(currentDate.getTime() + 60 * 1000 * i++); //test
+            let diffSeconds = Math.floor((currentDate.getTime() - this.timesList[this.tagIndex].startMilliseconds) / 1000);
             // console.log(diffSeconds)
             if (diffSeconds < 0) {
-                this.timesList[this.tagIndex].tagTitle = "即将开始";
-                this.timesList[this.tagIndex].subTitle = "距开始";
+                if (statusFlag != "hanging") {
+                    this.timesList[this.tagIndex].tagTitle = "即将开始";
+                    this.timesList[this.tagIndex].subTitle = "距开始";
+                    statusFlag = "hanging";
+                }
                 // console.log("upcoming")
-            } else if (diffSeconds > 0 && diffSeconds < this.durationMinutes*60) {
-                this.timesList[this.tagIndex].tagTitle = "抢购中";
-                this.timesList[this.tagIndex].subTitle = "距结束";
-                diffSeconds = this.durationMinutes*60 - diffSeconds;
+            } else if (diffSeconds > 0 && diffSeconds < this.durationMinutes * 60) {
+                diffSeconds = this.durationMinutes * 60 - diffSeconds;
+                for (let item of this.goodsList) {
+                    if (item.startTime == this.timesList[this.tagIndex].startTime) {
+                        item.sold += Math.floor(Math.random() * 3); //test
+                    }
+                }
+                if (statusFlag != "ongoing") {
+                    this.timesList[this.tagIndex].tagTitle = "抢购中";
+                    this.timesList[this.tagIndex].subTitle = "距结束";
+                    for (let item of this.goodsList) {
+                        // console.log(item.startTime)
+                        if (item.startTime == this.timesList[this.tagIndex].startTime) {
+                            item.status = "ongoing";
+                        }
+                    }
+                    statusFlag = "ongoing";
+                }
                 // console.log("ongoing")
             } else {
-                this.timesList[this.tagIndex].tagTitle = "抢购结束";
-                this.timesList[this.tagIndex].subTitle = "";
-                this.tagIndex++;
-                this.nextTime = this.timesList[this.tagIndex].startTime;
+                if (statusFlag != "overdue") {
+                    this.timesList[this.tagIndex].tagTitle = "抢购结束";
+                    this.timesList[this.tagIndex].subTitle = "";
+                    for (let item of this.goodsList) {
+                        // console.log(item.startTime)
+                        if (item.startTime == this.timesList[this.tagIndex].startTime) {
+                            item.status = "overdue";
+                        }
+                    }
+                    this.tagIndex++;
+                    this.nextTime = this.timesList[this.tagIndex].startTime;
+                    statusFlag = "overdue";
+                }
                 // console.log("overdue")
             }
             let leftHours = (Math.floor(Math.abs(diffSeconds) / (60 * 60))).toString().padStart(2, "0");
@@ -182,41 +220,24 @@ export default {
             let leftSeconds = (Math.floor(Math.abs(diffSeconds) % (60 * 60) % 60)).toString().padStart(2, "0");
             this.timeLeft = `${leftHours}:${leftMinutes}:${leftSeconds}`;
         }, 1000);
+
+        window.addEventListener("scroll", this.initHeight);
+        this.$nextTick(() => {
+            this.offsetTop = document.querySelector("#seckill-nav").offsetTop;
+        });
+    },
+    destroyed() {
+        window.removeEventListener("scroll", this.handleScroll);
     }
 }
 </script>
 
 <style lang="scss">
-#app {
-    // font-family: 'Avenir', Helvetica, Arial, sans-serif;
-    // -webkit-font-smoothing: antialiased;
-    // -moz-osx-font-smoothing: grayscale; // text-align: center;
-    // color: #2c3e50;
-    // border: 1px solid red;
-}
-
-// @import './iconfont.css';
-// @font-face {
-//   font-family: 'iconfont';
-//   src: url('iconfont.eot');
-//   src: url('iconfont.eot?#iefix') format('embedded-opentype'),
-//       url('iconfont.woff2') format('woff2'),
-//       url('iconfont.woff') format('woff'),
-//       url('iconfont.ttf') format('truetype'),
-//       url('iconfont.svg#iconfont') format('svg');
-// }
-// .iconfont {
-//   font-family: "iconfont" !important;
-//   font-size: 16px;
-//   font-style: normal;
-//   -webkit-font-smoothing: antialiased;
-//   -moz-osx-font-smoothing: grayscale;
-// }
 body {
     margin: 0;
     padding: 0;
     font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
-    height: 2500px;
+    // height: 2500px;
 }
 
 ul,
@@ -423,6 +444,10 @@ a {
         margin-top: 19px;
     }
     .seckill-nav {
+        // position: sticky;
+        // top: 0;
+        position: relative;
+        z-index: 3;
         margin: -68px 0 22px;
         ul {
             height: 68px;
@@ -467,18 +492,37 @@ a {
             }
         }
     }
+    .is_fixed{
+        position: fixed;
+        top: 0px;
+        box-shadow: 0 10px 20px rgba($color: #000000, $alpha: 0.2);
+    }
     .seckill-goods {
         display: block;
         ul {
             // display: none;
             margin-right: -13px;
             li {
+                position: relative;
+                z-index: 2;
                 float: left;
                 width: 400px;
                 height: 190px;
                 background-color: #fff;
                 margin: 0 13px 13px 0;
+                transition: all linear .2s;
+                &:hover {
+                    transform: translate(0, -2px);
+                    // box-shadow: 0px 5px 32px #cccccc;
+                    box-shadow: 0 10px 20px rgba($color: #000000, $alpha: 0.2);
+                    z-index: 1;
+                }
             }
+        }
+        .seckill-notice {
+            color: #bbbbbb;
+            font-size: 12px;
+            margin: 100px 0px 35px;
         }
     }
 }
