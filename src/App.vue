@@ -34,7 +34,7 @@
     
         <div class="header">
             <div class="container">
-                <div class="header-log">
+                <div class="header-logo">
                     <a href="" class="lr">小米商城</a>
                 </div>
                 <div class="header-nav">
@@ -86,6 +86,116 @@
                     </p>
                 </div>
             </div>
+        </div>
+        <div class="site-footer">
+            <div class="container">
+                <div class="footer-service">
+                    <ul class="list-service clear-fixed">
+                        <li><a><i class="iconfont"></i>预约维修服务</a></li>
+                        <li><a><i class="iconfont"></i>7天无理由退货</a></li>
+                        <li><a><i class="iconfont"></i>15天免费换货</a></li>
+                        <li><a><i class="iconfont"></i>满99元包邮</a></li>
+                        <li><a><i class="iconfont"></i>520余家售后网点</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links clear-fixed">
+                    <dl class="col-links col-links-first">
+                        <dt>帮助中心</dt>
+                        <dd><a>账户管理</a></dd>
+                        <dd><a>购物指南</a></dd>
+                        <dd><a>订单操作</a></dd>
+                    </dl>
+                    <dl class="col-links">
+                        <dt>服务支持</dt>
+                        <dd><a>售后政策</a></dd>
+                        <dd><a>自助服务</a></dd>
+                        <dd><a>相关下载</a></dd>
+                    </dl>
+                    <dl class="col-links">
+                        <dt>线下门店</dt>
+                        <dd><a>小米之家</a></dd>
+                        <dd><a>服务网点</a></dd>
+                        <dd><a>授权体验店</a></dd>
+                    </dl>
+                    <dl class="col-links">
+                        <dt>关于小米</dt>
+                        <dd><a>了解小米</a></dd>
+                        <dd><a>加入小米</a></dd>
+                        <dd><a>投资者关系</a></dd>
+                    </dl>
+                    <dl class="col-links">
+                        <dt>关于我们</dt>
+                        <dd><a>新浪微博</a></dd>
+                        <dd><a>官方微信</a></dd>
+                        <dd><a>联系我们</a></dd>
+                    </dl>
+                    <dl class="col-links">
+                        <dt>特色服务</dt>
+                        <dd><a>F 码通道</a></dd>
+                        <dd><a>礼物码</a></dd>
+                        <dd><a>防伪 查询</a></dd>
+                    </dl>
+                    <div class="col-contact">
+                        <p class="phone">400-100-5678</p>
+                        <p>周一至周日 8:00-18:00<br/>（仅收市话费）</p>
+                        <a class="btn"><i class="iconfont"></i>人工客服</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="site-info">
+            <div class="container">
+                <div class="logo ir">小米官网</div>
+                <div class="info-text">
+                    <p class="sites">
+                        <a>小米商城</a>
+                        <span class="sep">|</span>
+                        <a>MIUI</a>
+                        <span class="sep">|</span>
+                        <a>米家</a>
+                        <span class="sep">|</span>
+                        <a>米聊</a>
+                        <span class="sep">|</span>
+                        <a>多看</a>
+                        <span class="sep">|</span>
+                        <a>游戏</a>
+                        <span class="sep">|</span>
+                        <a>路由器</a>
+                        <span class="sep">|</span>
+                        <a>米粉卡</a>
+                        <span class="sep">|</span>
+                        <a>政企服务</a>
+                        <span class="sep">|</span>
+                        <a>小米天猫店</a>
+                        <span class="sep">|</span>
+                        <a>小米集团隐私政策</a>
+                        <span class="sep">|</span>
+                        <a>小米商城隐私政策</a>
+                        <span class="sep">|</span>
+                        <a>小米商城用户协议</a>
+                        <span class="sep">|</span>
+                        <a>问题反馈</a>
+                        <span class="sep">|</span>
+                        <a>廉正举报</a>
+                        <span class="sep">|</span>
+                        <a>诚信合规</a>
+                    </p>
+                    <p>
+                        © <a>mi.com</a> <a>京ICP证110507号</a> <a>京ICP备10046444号</a> <a>京公网安备11010802020134号</a> <a>京网文[2020]0276-042号</a><br/>
+                        <a>（京）网械平台备字（2018）第00005号</a> <a>互联网药品信息服务资格证 (京) -非经营性-2014-0090</a> <a>营业执照</a> <a>医疗器械公告</a><br/>
+                        <a>增值电信业务许可证</a>  网络食品经营备案（京）【2018】WLSPJYBAHF-12   <a>食品经营许可证</a><br/>
+                        违法和不良信息举报电话：171-5104-4404 <a>知识产权侵权投诉</a> 本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
+                    </p>
+                </div>
+                <div class="info-links">
+                    <a><img src="./assets/truste.png" alt=""></a>
+                    <a><img src="./assets/v-logo-1.png" alt=""></a>
+                    <a><img src="./assets/v-logo-2.png" alt=""></a>
+                    <a><img src="./assets/v-logo-3.png" alt=""></a>
+                    <a><img src="./assets/v-logo-4.png" alt=""></a>
+                </div>
+            </div>
+            <div class="slogan ir">探索黑科技，小米为发烧而生！</div>
         </div>
     </div>
 </template>
@@ -271,6 +381,11 @@ a {
     display: table;
     clear: both;
 }
+.ir {
+    text-align: left;
+    text-indent: -9999em;
+    overflow: hidden;
+}
 
 .topbar {
     background: #333333;
@@ -340,21 +455,49 @@ a {
 
 .header {
     height: 100px;
-    .header-log {
+    .header-logo {
+        position: relative;
         float: left;
-        width: 62px;
+        width: 55px;
         height: 55px;
         margin-top: 22px;
+        overflow: hidden;
+        background-color: #ff6700;
         a {
+            position: relative;
             display: block;
             height: 55px;
-            width: 55px;
-            background: #ff6700 url("./assets/mi-logo.png") no-repeat 50% 50%;
+            width: 110px; 
+            transition: all ease-in-out .15s;
+            // background-color: #ff6700;
+            &::before {
+                content: "";
+                position: absolute;
+                left: 0;
+                top: 0;
+                width: 55px;
+                height: 55px;
+                background: url("./assets/mi-logo.png") no-repeat 50% 50%;
+            }
+            &::after {
+                content: "";
+                display: block;
+                position: absolute;
+                left: -55px;
+                top: 0;
+                height: 55px;
+                width: 55px;
+                background: url("./assets/mi-home.png") no-repeat 50% 50%;
+            }
+            &:hover {
+                transform:translate(55px, 0);
+            }
         }
         .lr {
             text-align: left;
             text-indent: -9999em;
         }
+        
     }
     .header-nav {
         float: left;
@@ -524,6 +667,173 @@ a {
             font-size: 12px;
             margin: 100px 0px 35px;
         }
+    }
+}
+.site-footer {
+    display: block;
+    .footer-service {
+        padding: 27px 0;
+        border-bottom: 1px solid #e0e0e0;
+        ul {
+            list-style-type: none;
+            li {
+                float: left;
+                width: 19.8%;
+                height: 25px;
+                font-size: 16px;
+                line-height: 25px;
+                text-align: center;
+                color: #333;
+                border-left: 1px solid #e0e0e0;
+                cursor: pointer;
+                transition: all linear .1s;
+                &:first-child {
+                    border-left: 0;
+                }
+                &:hover {
+                    color: #ff6700;
+                }
+            }
+        }
+    }
+    .footer-links {
+        padding: 40px 0;
+        .col-links {
+            float: left;
+            width: 160px;
+            height: 112px;
+            margin: 0;
+            dt {
+                display: block;
+                font-size: 14px;
+                margin: -1px 0 24px;
+                color: #424242;
+            }
+            dd {
+                display: block;
+                margin: 10px 0 0;
+                // margin-inline-start: 40px;
+                a {
+                    font-size: 12px;
+                    color: #757575;
+                    text-decoration: none;
+                    cursor: pointer;
+                    &:hover {
+                        color: #ff6700;
+                    }
+                }
+            }
+        }
+        .col-contact {
+            float: right;
+            width: 251px;
+            height: 112px;
+            border-left: 1px solid #e0e0e0;
+            text-align: center;
+            color: #616161;
+            .phone {
+                margin: 0 0 5px;
+                font-size: 22px;
+                line-height: 1;
+                color: #ff6700;
+            }
+            p {
+                margin: 0 0 16px;
+            }
+            .btn {
+                display: inline-block;
+                width: 118px;
+                height: 28px;
+                font-size: 12px;
+                line-height: 28px;
+                border: 1px solid #b0b0b0;
+                border-color: #ff6700;
+                background: #fff;
+                color: #ff6700;
+                cursor: pointer;
+                transition: all linear .2s;
+                &:hover {
+                    background: #ff6700;
+                    color: #fff;
+                }
+            }
+        }
+    }
+}
+.site-info {
+    position: relative;
+    display: block;
+    padding: 30px 0;
+    font-size: 12px;
+    background: #fafafa;
+    .container {
+        position: relative;
+        .logo {
+            width: 57px;
+            height: 57px;
+            margin-right: 10px;
+            background: #ff6700 url("./assets/mi-logo.png") no-repeat 50% 50%;
+            position: absolute;
+            top: 0;
+            left: 0;
+        }
+        .info-text {
+            display: block;
+            font-size: 12px;
+            color: #b0b0b0;
+            padding-left: 67px;
+            .sites {
+                margin: 0;
+                line-height: 18px;
+                a {
+                    color: #757575;
+                    cursor: pointer;
+                    &:hover {
+                        color: #ff6700;
+                    }
+                }
+                .sep {
+                    margin: 0.25em;
+                    font-family: sans-serif;
+                    line-height: 18px;
+                    color: #b0b0b0;
+                }
+            }
+            p {
+                margin: 0;
+                line-height: 18px;
+                a {
+                    cursor: pointer;
+                    &:hover {
+                        color: #ff6700;
+                    }
+                }
+            }
+        }
+        .info-links {
+            height: 28px;
+            margin: 4px 0 0;
+            padding-left: 67px;
+            a {
+                color: #757575;
+                text-decoration: none;
+                cursor: pointer;
+                font-size: 12px;
+                img {
+                    width: auto;
+                    height: 28px;
+                    margin-left: 0px;
+                    margin-bottom: 15px;
+                }
+            }
+        }
+    }
+    .slogan {
+        width: 267px;
+        height: 19px;
+        margin: 30px auto 0;
+        clear: both;
+        background: url("./assets/slogan2016.png") no-repeat center 0;
     }
 }
 </style>
