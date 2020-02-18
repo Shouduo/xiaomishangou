@@ -1,5 +1,6 @@
 <template>
     <div id="app">
+
         <div class="topbar">
             <div class="container">
                 <div class="topbar-nav">
@@ -56,7 +57,7 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="header">
             <div class="container">
                 <div class="header-logo">
@@ -86,6 +87,7 @@
                 </div>
             </div>
         </div>
+
         <div class="seckill">
             <div class="seckill-head"></div>
             <div class="container">
@@ -112,6 +114,7 @@
                 </div>
             </div>
         </div>
+
         <div class="site-footer">
             <div class="container">
                 <div class="footer-service">
@@ -168,6 +171,7 @@
                 </div>
             </div>
         </div>
+
         <div class="site-info">
             <div class="container">
                 <div class="logo ir">小米官网</div>
@@ -372,7 +376,12 @@ body {
     margin: 0;
     padding: 0;
     font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
-    // height: 2500px;
+    // position: relative;
+    // z-index: -5;
+}
+#app {
+    position: relative;
+    z-index: 0;
 }
 
 ul,
@@ -415,8 +424,13 @@ a {
 .topbar {
     background: #333333;
     height: 40px;
-    // position: relative;
-    // z-index: 1;
+    position: relative;
+    // z-index: 5;
+    // .container {
+    //     background-color: pink;
+        // position: relative;
+        // z-index: 5;
+    // }
     a {
         color: #b0b0b0;
         font-size: 12px;
@@ -461,7 +475,8 @@ a {
     }
     .topbar-cart {
         float: right;
-        position: relative;  
+        position: relative;
+        // z-index: 5;
         .nav-tag {
             display: block;
             height: 40px;
@@ -470,10 +485,12 @@ a {
             width: 120px;
             background-color: #424242;
             cursor: pointer;
-            transition-delay: .65s;
+            // transition-delay: .65s;
+            transition: all linear .1s .65s;
         }
         &:hover .nav-tag {
-            transition-delay: 0s;
+            // transition-delay: 0s;
+            transition: all linear .1s 0s;
             background-color: #ffffff;
             color: #ff6700;
             }
@@ -485,7 +502,9 @@ a {
         &:hover .dropdown-cart {
             transform:translate(0px, 0px);
             max-height: 800px;
+            // transform: scaleY(1);
             transition: max-height linear .6s, transform linear .3s;
+            box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.2); 
         }
         .dropdown-cart {
             display: block;
@@ -499,6 +518,7 @@ a {
             background-color: #fff;
             box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.2); 
             transform:translate(0px, -10px);
+            // transform: scaleY(.8);
             transition: max-height linear .6s, transform linear .3s .3s;
             ul {
                 padding: 15px 15px 0;
@@ -728,7 +748,7 @@ a {
 .seckill {
     background-color: #f5f5f5;
     position: relative;
-    z-index: -2;
+    z-index: -3;
     .seckill-head {
         background: url("./assets/seckill-head.jpg") no-repeat 50% 0;
         height: 170px;
