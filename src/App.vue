@@ -261,6 +261,14 @@ export default {
         initHeight() {
             let scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
             this.isFixed = scrollTop > this.offsetTop? true:false;
+            console.log(scrollTop + "::" + this.offsetTop + "==" + this.isFixed);
+        },
+        getOffsetTop(elem) {
+            let offsetTop = 0;
+            do {
+                if (!isNaN(elem.offsetTop)) offsetTop += elem.offsetTop;
+            } while(elem = elem.offsetParent);
+            return offsetTop;
         }
     },
     computed: {
@@ -361,9 +369,11 @@ export default {
         }, 1000);
 
         window.addEventListener("scroll", this.initHeight);
-        this.$nextTick(() => {
-            this.offsetTop = document.querySelector("#seckill-nav").offsetTop;
-        });
+        // this.$nextTick(() => {
+            // this.offsetTop = document.querySelector("#seckill-nav").offsetTop;
+        // });
+
+        this.offsetTop = this.getOffsetTop(document.querySelector("#seckill-nav"));
     },
     destroyed() {
         window.removeEventListener("scroll", this.handleScroll);
@@ -748,6 +758,7 @@ a {
 .seckill {
     background-color: #f5f5f5;
     position: relative;
+    // position: static;
     z-index: -3;
     .seckill-head {
         background: url("./assets/seckill-head.jpg") no-repeat 50% 0;
