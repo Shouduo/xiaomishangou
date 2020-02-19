@@ -6,20 +6,23 @@
         <div class="info">
             <p href="" class="name">{{itemInfo.name}}</p>
             <p class="tips">{{itemInfo.tip}}</p>
+
             <div v-show="itemInfo.status!='hanging'">
                 <progress max="100" :value="percentage" />
                 <p class="percentage">{{percentage}}%</p>
                 <p class="price">{{itemInfo.nowPrice}}元
                     <del>{{itemInfo.fomerPrice}}元</del>
                 </p>
-                <a class="btn ongoingBtn" :class="{hasClicked:itemInfo.purchased}" v-show="itemInfo.status=='ongoing'" @click.prevent="purchaseBtnClick()">{{purchaseBtn}}</a>
+                <a class="btn ongoingBtn" :class="{hasPurchased:itemInfo.purchased}" v-show="itemInfo.status=='ongoing'" @click.prevent="purchaseBtnClick($event.target)">{{purchaseBtn}}</a>
+                <!-- <p class="add-one">+1</p> -->
                 <a class="btn overdueBtn" v-show="itemInfo.status=='overdue'" @click.prevent>抢购结束</a>
             </div>
+
             <div v-show="itemInfo.status=='hanging'">
                 <p class="price">{{itemInfo.nowPrice}}元
                     <del>{{itemInfo.fomerPrice}}元</del>
                 </p>
-                <a href="" class="btn" :class="{hasClicked:itemInfo.alertSet}" v-show="itemInfo.status=='hanging'" @click.prevent="alertBtnClick()">{{alertBtn}}</a>
+                <a href="" class="btn" :class="{hasAlertSet:itemInfo.alertSet}" v-show="itemInfo.status=='hanging'" @click.prevent="alertBtnClick()">{{alertBtn}}</a>
                 <p class="person">已有{{itemInfo.alertCount}}人设置提醒</p>
             </div>
             <!-- <p class="price">{{itemInfo.nowPrice}}元
@@ -32,6 +35,8 @@
 </template>
 
 <script>
+import VueEvent from './VueEvent.js'
+
 export default {
     name: 'Item',
     props: {
@@ -61,13 +66,34 @@ export default {
         }
     },
     methods: {
-        purchaseBtnClick() {
-            // if (this.itemInfo.sold < this.itemInfo.amount) {
-                this.itemInfo.purchased = !this.itemInfo.purchased;
-                this.itemInfo.sold = this.purchaseBtn == "立即购买"? this.itemInfo.sold + 1:this.itemInfo.sold - 1;
-                this.purchaseBtn = this.purchaseBtn == "立即购买"? "已加入购物车":"立即购买";
-                // if (this.itemInfo.sold == this.itemInfo.amount) this.itemInfo.status = "overdue";
-            // }
+        purchaseBtnClick(btn) {
+            // this.itemInfo.purchased = !this.itemInfo.purchased;
+            // this.itemInfo.sold = this.purchaseBtn == "立即购买"? this.itemInfo.sold+1 : this.itemInfo.sold-1;
+            // this.purchaseBtn = this.purchaseBtn == "立即购买"? "已加入购物车":"立即购买";
+
+            // console.log(btn);
+            // let B = document.querySelector(".ongoingBtn");
+            // console.log(B)
+            let addOne = document.createElement("p");
+            addOne.className = "add-one";
+            let addOneText = document.createTextNode("+1");
+            addOne.appendChild(addOneText);
+            // addOne.animate({
+            //     top: "-30px",
+            //     opacity: "0"
+            // }, 200);
+            btn.append(addOne);
+            this.itemInfo.purchased = true;
+            this.itemInfo.sold ++;
+            this.purchaseBtn = "再来一份";
+
+            VueEvent.$emit("addItem", {
+                "id": this.itemInfo.id,
+                "imgName": this.itemInfo.imgName,
+                "name": this.itemInfo.name,
+                "nowPrice": this.itemInfo.nowPrice,
+                "amount": 1
+            });      
         },
         alertBtnClick() {
             this.itemInfo.alertSet = !this.itemInfo.alertSet;
@@ -82,6 +108,15 @@ export default {
                 console.log("overflow")
             }
         }
+    },
+    mounted() {
+        VueEvent.$on(this.itemInfo.id, (allOut) => {
+            this.itemInfo.sold --;
+            if(allOut) {
+                this.itemInfo.purchased = false;
+                this.purchaseBtn = "立即购买";
+            }
+        })
     }
 }
 </script>
@@ -175,6 +210,7 @@ export default {
             margin-top: 20px; // border: 1px solid #83c44e;
         }
         .ongoingBtn {
+            position: relative;
             background-color: #f13939;
         }
         .overdueBtn {
@@ -182,9 +218,13 @@ export default {
             color: #b0b0b0;
             cursor: default;
         }
-        .hasClicked {
+        .hasAlertSet {
             background-color: #f2f2f2;
             color: #b0b0b0;
+        }
+        .hasPurchased {
+            background-color: #414141;
+            // color: #b0b0b0;
         }
         .person {
             font-size: 12px;
@@ -192,6 +232,30 @@ export default {
             color: #999;
             margin-top: 10px;
         }
+    }
+}
+</style>
+
+<style lang="scss">
+.add-one {
+    display: block;
+    position: absolute;
+    line-height: 30px;
+    margin: 0;
+    top: 0;
+    right: -25px;
+    margin-left: 10px;
+    color: black;
+    animation: floatUp linear .4s both;
+}
+@keyframes floatUp {
+    from {
+        top: 0;
+        opacity: 1;
+    }
+    to {
+        top: -20px;
+        opacity: 0;
     }
 }
 </style>

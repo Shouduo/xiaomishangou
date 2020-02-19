@@ -21,26 +21,29 @@
                 <a class="nav-tag">Select Region</a>
             </div>
             <div class="topbar-cart">
-                <a class="nav-tag"><i class="iconfont">&#xe63b;</i>购物车（0）</a>
+                <a class="nav-tag" :class="{empty:sumCount==0}"><i class="iconfont">&#xe63b;</i>购物车（{{sumCount}}）</a>
                 <div class="dropdown-cart">
-                    <ul>
-                        <li>
-                            <img src="../assets/img/1.jpg" alt="">
-                            <a class="good-name"><em>【秒杀】</em>小米双肩包</a>
-                            <a class="delete" href="">&times;</a>
-                            <p class="good-price">19.9元 &times; 1</p>
-                        </li>
-                        <li>
-                            <img src="../assets/img/1.jpg" alt="">
-                            <a class="good-name"><em>【秒杀】</em>小米双肩包123123312</a>
-                            <a class="delete" href="">&times;</a>
-                            <p class="good-price">19.9元 &times; 1</p>
-                        </li>
-                    </ul>
-                    <div class="cart-summary clear-fixed">
+                    <p class="empty-info" v-if="sumCount==0">购物车中还没有商品，赶紧选购吧！</p>
+                    <div class="list-container" v-if="sumCount!=0">
+                        <ul>
+                            <!-- <li>
+                                <img src="../assets/img/1.jpg" alt="">
+                                <a class="good-name"><em>【秒杀】</em>小米双肩包</a>
+                                <a class="delete" href="">&times;</a>
+                                <p class="good-price">19.9元 &times; 1</p>
+                            </li> -->
+                            <li v-for="item in cartList" v-bind:key="item.id">
+                                <img :src="requireImg(item)" alt="">
+                                <a class="good-name"><em>【秒杀】</em>{{item.name}}</a>
+                                <a class="delete" @click.prevent="deleteItem(item)">&times;</a>
+                                <p class="good-price">{{item.nowPrice}}元 &times; {{item.amount}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="cart-summary clear-fixed" v-if="sumCount!=0">
                         <div class="summary-left">
-                            <p class="summary-count">共 2 件商品</p>
-                            <p class="summary-money">238<em>元</em></p>
+                            <p class="summary-count">共 {{sumCount}} 件商品</p>
+                            <p class="summary-money">{{sumMoney}}<em>元</em></p>
                         </div>
                         <a class="summary-pay">去购物车结算</a>
                     </div>
@@ -58,12 +61,78 @@
 </template>
 
 <script>
+import VueEvent from './VueEvent.js'
+
 export default {
     name: 'Topbar',
     data() {
         return {
-
+            cartList: [
+            {
+                "id": 12164564,
+                "imgName": "1.jpg",
+                "name": "小米极简都市双肩包 深灰",
+                "nowPrice": 9.9,
+                "amount": 1
+            },
+            {
+                "id": 12164565,
+                "imgName": "2.png",
+                "name": "米家智能插座基础版 白色",
+                "nowPrice": 1,
+                "amount": 2,
+            }]
         }
+    },
+    computed: {
+        sumCount() {
+            return this.cartList.reduce((total, item) => {
+                return total + item.amount;
+            }, 0);
+        },
+        sumMoney() {
+            
+            let money = this.cartList.reduce((total, item) => {
+                return total + item.amount * item.nowPrice;
+            }, 0);
+            return (Math.floor(money*10))/10;
+        }
+    },
+    methods: {
+        requireImg(good) {
+            return require('../assets/img/' + good.imgName);
+        },
+         deleteItem(good) {
+            this.cartList.forEach((item, index) => {
+                let allOut = false;
+                if(item.name == good.name) {
+                    if(item.amount > 1){
+                        item.amount--;
+                    } else {
+                        // VueEvent.$emit(item.id.toString());
+                        allOut = true;
+                        this.cartList.splice(index, 1);
+                    }
+                    VueEvent.$emit(item.id.toString(), allOut);
+                } 
+            })
+        }
+    },
+    mounted() {
+        VueEvent.$on("addItem", (data) => {
+            // console.log(data);
+            let alreadyHas = false;
+            this.cartList.forEach((item) => {
+                if (item.id == data.id) {
+                    item.amount ++;
+                    alreadyHas = true;
+                }
+            });
+            if (alreadyHas == false) {
+                this.cartList.push(data);
+            }
+
+        })
     }
 }
 </script>
@@ -131,10 +200,17 @@ export default {
             line-height: 40px;
             text-align: center;
             width: 120px;
-            background-color: #424242;
+            background-color: #ff6700;
+            color: #fff;
             cursor: pointer;
             // transition-delay: .65s;
             transition: all linear .1s .65s;
+        }
+        .empty {
+            background-color: #424242;
+            color: #b0b0b0;
+            // background-color: #ffffff;
+            // color: #ff6700;
         }
         &:hover .nav-tag {
             // transition-delay: 0s;
@@ -168,60 +244,77 @@ export default {
             transform:translate(0px, -10px);
             // transform: scaleY(.8);
             transition: max-height linear .6s, transform linear .3s .3s;
-            ul {
-                padding: 15px 15px 0;
+            .empty-info {
+                display: block;
+                text-align: center;
+                font-size: 12px;
+                margin: 40px auto;
+                color: #424242;
+            }
+            .list-container {
                 max-height: 628px;
-                overflow: auto;
-                li {
-                    display: block;
-                    height: 80px;
-                    border-bottom: 1px solid #e0e0e0;
-                    &:hover .delete {
-                        opacity: 1;
-                    }
-                    img {
-                        float: left;
-                        width: 56px;
-                        margin: 12px 12px;
-                        vertical-align: middle;
-                    }
-                    .good-name {
-                        float: left;
-                        font-size: 12px;
-                        margin: 30px 0;
-                        color: #000;
-                        width: 120px;
-                        white-space: nowrap;
-                        overflow: hidden;
-                        text-overflow: ellipsis;
-                        cursor: pointer;
-                        em {
-                            color: #e05e40;
+                overflow-Y: auto;
+                overflow-X: hidden;
+                ul {
+                    padding: 15px 17px 0;
+                    // margin: 15px 17px 0 15px;
+                    // max-height: 628px;
+                    // max-height: 328px;
+                    width: 320px;
+                    box-sizing: border-box;
+                    // overflow: auto;
+                    li {
+                        display: block;
+                        height: 80px;
+                        border-bottom: 1px solid #e0e0e0;
+                        transition: all linear .5s;
+                        &:hover .delete {
+                            opacity: 1;
                         }
-                        &:hover {
-                            color: #ff6700;
+                        img {
+                            float: left;
+                            width: 56px;
+                            margin: 12px 12px;
+                            vertical-align: middle;
                         }
-                    }
-                    .good-price {
-                        float: right;
-                        font-size: 12px;
-                        margin-right: 6px;
-                        margin-top: 20px;
-                    }
-                    .delete {
-                        opacity: 0;
-                        width: 16px;
-                        height: 16px;
-                        line-height: 80px;
-                        font-size: 20px;
-                        float: right;
-                        color: #b0b0b0;
-                        &:hover {
-                            color: #424242;
+                        .good-name {
+                            float: left;
+                            font-size: 12px;
+                            margin: 30px 0;
+                            color: #000;
+                            width: 120px;
+                            white-space: nowrap;
+                            overflow: hidden;
+                            text-overflow: ellipsis;
+                            cursor: pointer;
+                            em {
+                                color: #e05e40;
+                            }
+                            &:hover {
+                                color: #ff6700;
+                            }
                         }
-                    }
-                    &:last-child {
-                        border-bottom: none;
+                        .good-price {
+                            float: right;
+                            font-size: 12px;
+                            margin-right: 6px;
+                            margin-top: 20px;
+                        }
+                        .delete {
+                            opacity: 0;
+                            width: 16px;
+                            height: 16px;
+                            line-height: 80px;
+                            font-size: 20px;
+                            float: right;
+                            color: #b0b0b0;
+                            &:hover {
+                                color: #424242;
+                            }
+                        }
+                        &:last-child {
+                            border-bottom: none;
+                        }
                     }
                 }
             }
