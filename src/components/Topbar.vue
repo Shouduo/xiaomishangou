@@ -67,21 +67,7 @@ export default {
     name: 'Topbar',
     data() {
         return {
-            cartList: [
-            {
-                "id": 12164564,
-                "imgName": "1.jpg",
-                "name": "小米极简都市双肩包 深灰",
-                "nowPrice": 9.9,
-                "amount": 1
-            },
-            {
-                "id": 12164565,
-                "imgName": "2.png",
-                "name": "米家智能插座基础版 白色",
-                "nowPrice": 1,
-                "amount": 2,
-            }]
+            cartList: []
         }
     },
     computed: {

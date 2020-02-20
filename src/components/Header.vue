@@ -6,22 +6,22 @@
             </div>
             <div class="header-nav">
                 <ul class="nav-list clear-fixed">
-                    <li class="nav-category"><a href="">全部商品分类</a></li>
-                    <li class="nav-item"><a href="">小米手机</a></li>
-                    <li class="nav-item"><a href="">红米</a></li>
-                    <li class="nav-item"><a href="">电视</a></li>
-                    <li class="nav-item"><a href="">笔记本</a></li>
-                    <li class="nav-item"><a href="">空调</a></li>
-                    <li class="nav-item"><a href="">新品</a></li>
-                    <li class="nav-item"><a href="">路由器</a></li>
-                    <li class="nav-item"><a href="">智能硬件</a></li>
-                    <li class="nav-item"><a href="">服务</a></li>
-                    <li class="nav-item"><a href="">社区</a></li>
+                    <li class="nav-category"><a>全部商品分类</a></li>
+                    <li class="nav-item"><a>小米手机</a></li>
+                    <li class="nav-item"><a>红米</a></li>
+                    <li class="nav-item"><a>电视</a></li>
+                    <li class="nav-item"><a>笔记本</a></li>
+                    <li class="nav-item"><a>空调</a></li>
+                    <li class="nav-item"><a>新品</a></li>
+                    <li class="nav-item"><a>路由器</a></li>
+                    <li class="nav-item"><a>智能硬件</a></li>
+                    <li class="nav-item"><a>服务</a></li>
+                    <li class="nav-item"><a>社区</a></li>
                 </ul>
             </div>
             <div class="header-search">
                 <form action="" class="search-form">
-                    <input type="search" name="keyword" class="search-text" placeholder="&#xe63b;">
+                    <input type="search" name="keyword" class="search-text">
                     <!-- <input type="submit" value="&#xe63c;" class="search-btn iconfont"> -->
                     <a class="search-btn iconfont">&#xe63c;</a>
                 </form>

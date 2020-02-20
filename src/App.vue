@@ -295,7 +295,8 @@ export default {
         }
     },
     mounted() {
-        this.$http.get('./goods.json').then((response) => {
+        // this.$http.get('./goods.json').then((response) => {       //'./goods.json'
+        axios.get('./goods.json').then((response) => {     //'./goods.json' 
             this.timesList = response.data.goods.map((item) => {
                 return item.startTime;
             });
