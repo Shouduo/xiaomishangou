@@ -8,11 +8,10 @@
                 <ul class="nav-list clear-fixed">
                     <li class="nav-category"><a>全部商品分类</a></li>
                     <li class="nav-item"><a>小米手机</a></li>
-                    <li class="nav-item"><a>红米</a></li>
+                    <li class="nav-item"><a>Redmi红米</a></li>
                     <li class="nav-item"><a>电视</a></li>
                     <li class="nav-item"><a>笔记本</a></li>
-                    <li class="nav-item"><a>空调</a></li>
-                    <li class="nav-item"><a>新品</a></li>
+                    <li class="nav-item"><a>家电</a></li>
                     <li class="nav-item"><a>路由器</a></li>
                     <li class="nav-item"><a>智能硬件</a></li>
                     <li class="nav-item"><a>服务</a></li>

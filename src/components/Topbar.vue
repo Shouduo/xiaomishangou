@@ -16,9 +16,13 @@
                 <span>|</span>
                 <a class="nav-tag">小爱开放平台</a>
                 <span>|</span>
-                <a class="nav-tag">政企服务</a>
+                <a class="nav-tag">企业团购</a>
                 <span>|</span>
-                <a class="nav-tag">Select Region</a>
+                <a class="nav-tag">资质证照</a>
+                <span>|</span>
+                <a class="nav-tag">协议规则</a>
+                <span>|</span>
+                <a class="nav-tag">下载app</a>
             </div>
             <div class="topbar-cart">
                 <a class="nav-tag" :class="{empty:sumCount==0}"><i class="iconfont">&#xe63b;</i>购物车（{{sumCount}}）</a>
@@ -43,7 +47,7 @@
                     <div class="cart-summary clear-fixed" v-if="sumCount!=0">
                         <div class="summary-left">
                             <p class="summary-count">共 {{sumCount}} 件商品</p>
-                            <p class="summary-money">{{sumMoney}}<em>元</em></p>
+                            <p class="summary-money">{{sumMoney.toFixed(2)}}<em>元</em></p>
                         </div>
                         <a class="summary-pay">去购物车结算</a>
                     </div>
@@ -77,11 +81,14 @@ export default {
             }, 0);
         },
         sumMoney() {
-            
-            let money = this.cartList.reduce((total, item) => {
+            return this.cartList.reduce((total, item) => {
                 return total + item.amount * item.nowPrice;
             }, 0);
-            return (Math.floor(money*10))/10;
+
+            // let money = this.cartList.reduce((total, item) => {
+            //     return total + item.amount * item.nowPrice;
+            // }, 0);
+            // return (Math.floor(money*10))/10;
         }
     },
     methods: {

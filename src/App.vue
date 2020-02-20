@@ -241,8 +241,9 @@ import Footer from './components/Footer.vue'
 import Info from './components/Info.vue'
 import axios from 'axios'
 import Vue from 'vue'
+import Mock from 'mockjs'
 
-Vue.prototype.$http = axios;
+// Vue.prototype.$http = axios;
 
 export default {
     name: 'app',
@@ -296,7 +297,11 @@ export default {
     },
     mounted() {
         // this.$http.get('./goods.json').then((response) => {       //'./goods.json'
-        axios.get('./goods.json').then((response) => {     //'./goods.json' 
+        axios({
+            method: "get",
+            url: "data"
+        })
+        .then((response) => {     //'./goods.json' 
             this.timesList = response.data.goods.map((item) => {
                 return item.startTime;
             });
@@ -326,6 +331,9 @@ export default {
             this.goodsList = response.data.goods.map((item) => {
                 return Object.assign(item, { "alertSet": false, "purchased": false });
             });
+        })
+        .catch((error) => {
+            console.log(error);
         });
 
         let i = 0; //test
@@ -415,6 +423,7 @@ export default {
 body {
     margin: 0;
     padding: 0;
+    min-width: 1226px;
     font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei", "Hiragino Sans GB", "Heiti SC", "WenQuanYi Micro Hei", sans-serif;
     // position: relative;
     // z-index: -5;
@@ -422,6 +431,7 @@ body {
 #app {
     position: relative;
     z-index: 0;
+    zoom: 1;
 }
 
 ul,

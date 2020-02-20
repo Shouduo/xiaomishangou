@@ -10,7 +10,7 @@
             <div v-show="itemInfo.status!='hanging'">
                 <progress max="100" :value="percentage" />
                 <p class="percentage">{{percentage}}%</p>
-                <p class="price">{{itemInfo.nowPrice}}元
+                <p class="price">{{itemInfo.nowPrice.toFixed(2)}}元
                     <del>{{itemInfo.fomerPrice}}元</del>
                 </p>
                 <a class="btn ongoingBtn" :class="{hasPurchased:itemInfo.purchased}" v-show="itemInfo.status=='ongoing'" @click.prevent="purchaseBtnClick($event.target)">{{purchaseBtn}}</a>
@@ -19,7 +19,7 @@
             </div>
 
             <div v-show="itemInfo.status=='hanging'">
-                <p class="price">{{itemInfo.nowPrice}}元
+                <p class="price">{{itemInfo.nowPrice.toFixed(2)}}元
                     <del>{{itemInfo.fomerPrice}}元</del>
                 </p>
                 <a href="" class="btn" :class="{hasAlertSet:itemInfo.alertSet}" v-show="itemInfo.status=='hanging'" @click.prevent="alertBtnClick()">{{alertBtn}}</a>
@@ -134,9 +134,10 @@ export default {
         }
     }
     .info {
-        width: 190px;
-        height: 190px;
+        width: 180px;
+        height: 179px;
         margin-left: 210px;
+        margin-right: 10px;
         padding-top: 30px;
         .name {
             font-size: 16px;
@@ -152,23 +153,26 @@ export default {
         }
         .tips {
             font-size: 12px;
-            line-height: 1;
-            color: #b0b0b0;
-            margin-top: 10px;
+            line-height: 16px;
+            height: 32px;
+            color: #797979;
+            margin-top: 7px;
             margin-bottom: 0;
-            display: block;
-            white-space: nowrap;
+            display: -webkit-block;
+            // white-space: nowrap;
             overflow: hidden;
-            text-overflow: ellipsis;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 2;
+            // text-overflow: ellipsis;
         }
         progress {
             // -webkit-appearance: none;
             // -moz-appearance: none;
             appearance: none;
-            height: 6px;
-            width: 150px;
+            height: 5px;
+            width: 146px;
             display: inline-block;
-            margin: 20px 0 0 0; // border: none;
+            margin: 10px 0 0 0; // border: none;
         }
         progress::-webkit-progress-bar {
             background-color: #f5f5f5;
@@ -178,17 +182,18 @@ export default {
         }
         .percentage {
             display: inline-block;
+            position: absolute;
             font-size: 12px;
             line-height: 1;
             color: #666;
             transform: translate(4px, 4px);
-            margin: 0;
+            margin:6px 0 0 2px;
         }
         .price {
             font-size: 16px;
             line-height: 1;
             color: #f1393a;
-            margin-top: 14px;
+            margin-top: 12px;
             margin-bottom: 0;
         }
         .price del {
@@ -207,7 +212,7 @@ export default {
             text-align: center;
             text-decoration: none;
             background: #83c44e;
-            margin-top: 20px; // border: 1px solid #83c44e;
+            margin-top: 16px; // border: 1px solid #83c44e;
         }
         .ongoingBtn {
             position: relative;
