@@ -14,7 +14,6 @@
                     <del>{{itemInfo.fomerPrice}}元</del>
                 </p>
                 <a class="btn ongoingBtn" :class="{hasPurchased:itemInfo.purchased}" v-show="itemInfo.status=='ongoing'" @click.prevent="purchaseBtnClick($event.target)">{{purchaseBtn}}</a>
-                <!-- <p class="add-one">+1</p> -->
                 <a class="btn overdueBtn" v-show="itemInfo.status=='overdue'" @click.prevent>抢购结束</a>
             </div>
 
@@ -25,11 +24,6 @@
                 <a href="" class="btn" :class="{hasAlertSet:itemInfo.alertSet}" v-show="itemInfo.status=='hanging'" @click.prevent="alertBtnClick()">{{alertBtn}}</a>
                 <p class="person">已有{{itemInfo.alertCount}}人设置提醒</p>
             </div>
-            <!-- <p class="price">{{itemInfo.nowPrice}}元
-                    <del>{{itemInfo.fomerPrice}}元</del>
-                </p>
-                <a href="" class="btn">{{itemInfo.btnText}}</a>
-                <p class="person" v-show="itemInfo.btnText == '提醒我'">已有{{itemInfo.alertCount}}人设置提醒</p> -->
         </div>
     </div>
 </template>
@@ -50,15 +44,9 @@ export default {
     },
     computed: {
         requireImg() {
-            // console.log(this.itemInfo.imgUrl)
-            // let url = this.itemInfo.imgUrl;
             return require('../assets/img/' + this.itemInfo.imgName);
         },
         percentage() {
-
-            // console.log(this.itemInfo.sold)
-            // console.log(this.itemInfo.amount)
-            // console.log(Math.floor(this.itemInfo.sold/this.itemInfo.amount*100))
             return Math.floor(this.itemInfo.sold/this.itemInfo.amount*100); 
         },
         soldNum() {
@@ -67,21 +55,10 @@ export default {
     },
     methods: {
         purchaseBtnClick(btn) {
-            // this.itemInfo.purchased = !this.itemInfo.purchased;
-            // this.itemInfo.sold = this.purchaseBtn == "立即购买"? this.itemInfo.sold+1 : this.itemInfo.sold-1;
-            // this.purchaseBtn = this.purchaseBtn == "立即购买"? "已加入购物车":"立即购买";
-
-            // console.log(btn);
-            // let B = document.querySelector(".ongoingBtn");
-            // console.log(B)
             let addOne = document.createElement("p");
             addOne.className = "add-one";
             let addOneText = document.createTextNode("+1");
             addOne.appendChild(addOneText);
-            // addOne.animate({
-            //     top: "-30px",
-            //     opacity: "0"
-            // }, 200);
             btn.append(addOne);
             this.itemInfo.purchased = true;
             this.itemInfo.sold ++;
@@ -105,7 +82,6 @@ export default {
             if (this.itemInfo.sold >= this.itemInfo.amount) {
                 this.itemInfo.sold = this.itemInfo.amount;
                 this.itemInfo.status = "overdue";
-                console.log("overflow")
             }
         }
     },
@@ -159,20 +135,16 @@ export default {
             margin-top: 7px;
             margin-bottom: 0;
             display: -webkit-block;
-            // white-space: nowrap;
             overflow: hidden;
             -webkit-box-orient: vertical;
             -webkit-line-clamp: 2;
-            // text-overflow: ellipsis;
         }
         progress {
-            // -webkit-appearance: none;
-            // -moz-appearance: none;
             appearance: none;
             height: 5px;
             width: 146px;
             display: inline-block;
-            margin: 10px 0 0 0; // border: none;
+            margin: 10px 0 0 0;
         }
         progress::-webkit-progress-bar {
             background-color: #f5f5f5;
@@ -212,7 +184,7 @@ export default {
             text-align: center;
             text-decoration: none;
             background: #83c44e;
-            margin-top: 16px; // border: 1px solid #83c44e;
+            margin-top: 16px;
         }
         .ongoingBtn {
             position: relative;
@@ -229,7 +201,6 @@ export default {
         }
         .hasPurchased {
             background-color: #414141;
-            // color: #b0b0b0;
         }
         .person {
             font-size: 12px;

@@ -122,7 +122,6 @@ export default {
             dd {
                 display: block;
                 margin: 7px 0 0;
-                // margin-inline-start: 40px;
                 a {
                     font-size: 12px;
                     color: #757575;

@@ -9,7 +9,8 @@
   "dependencies": {
     "axios": "^0.19.2",
     "mockjs": "^1.1.0",
-    "vue": "^2.6.10"
+    "vue": "^2.6.10",
+    "vue-jsonp": "^0.1.8"
   },
   "devDependencies": {
     "@vue/cli-service": "^4.1.0",

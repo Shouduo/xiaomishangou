@@ -33,12 +33,6 @@
                     <p class="empty-info" v-if="sumCount==0">购物车中还没有商品，赶紧选购吧！</p>
                     <div class="list-container" v-if="sumCount>0">
                         <ul>
-                            <!-- <li>
-                                <img src="../assets/img/1.jpg" alt="">
-                                <a class="good-name"><em>【秒杀】</em>小米双肩包</a>
-                                <a class="delete" href="">&times;</a>
-                                <p class="good-price">19.9元 &times; 1</p>
-                            </li> -->
                             <li v-for="item in cartList" v-bind:key="item.id">
                                 <img :src="requireImg(item)" alt="">
                                 <a class="good-name"><em>【秒杀】</em>{{item.name}}</a>
@@ -87,11 +81,6 @@ export default {
             return this.cartList.reduce((total, item) => {
                 return total + item.amount * item.nowPrice;
             }, 0);
-
-            // let money = this.cartList.reduce((total, item) => {
-            //     return total + item.amount * item.nowPrice;
-            // }, 0);
-            // return (Math.floor(money*10))/10;
         }
     },
     methods: {
@@ -105,7 +94,6 @@ export default {
                     if(item.amount > 1){
                         item.amount--;
                     } else {
-                        // VueEvent.$emit(item.id.toString());
                         allOut = true;
                         this.cartList.splice(index, 1);
                     }
@@ -116,7 +104,6 @@ export default {
     },
     mounted() {
         VueEvent.$on("addItem", (data) => {
-            // console.log(data);
             let alreadyHas = false;
             this.cartList.forEach((item) => {
                 if (item.id == data.id) {
@@ -138,12 +125,6 @@ export default {
     background: #333333;
     height: 40px;
     position: relative;
-    // z-index: 5;
-    // .container {
-    //     background-color: pink;
-        // position: relative;
-        // z-index: 5;
-    // }
     a {
         color: #b0b0b0;
         font-size: 12px;
@@ -162,6 +143,7 @@ export default {
             color: #424242;
             font-family: sans-serif;
             margin: 0.5em;
+            cursor: default; 
         }
     }
     .topbar-info {
@@ -189,7 +171,6 @@ export default {
     .topbar-cart {
         float: right;
         position: relative;
-        // z-index: 5;
         .nav-tag {
             display: block;
             height: 40px;
@@ -199,13 +180,11 @@ export default {
             background-color: #ff6700;
             color: #fff;
             cursor: pointer;
-            // transition-delay: .65s;
             transition: all linear .1s .65s;
             .iconfont {
                 font-size: 20px;
                 font-weight: 500;
                 line-height: 20px;
-                // margin-right: 4px;
                 margin-left: -8px;
                 vertical-align: -4px;
             }
@@ -213,24 +192,15 @@ export default {
         .empty {
             background-color: #424242;
             color: #b0b0b0;
-            // background-color: #ffffff;
-            // color: #ff6700;
         }
         &:hover .nav-tag {
-            // transition-delay: 0s;
             transition: all linear .1s 0s;
             background-color: #ffffff;
             color: #ff6700;
         }
-        // i {
-        //     line-height: 20px;
-        //     font-size: 20px;
-        //     padding-top: 2px;
-        // }
         &:hover .dropdown-cart {
             transform:translate(0px, 0px);
             max-height: 800px;
-            // transform: scaleY(1);
             transition: max-height linear .6s, transform linear .3s;
             box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.2); 
         }
@@ -246,7 +216,6 @@ export default {
             background-color: #fff;
             box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.2); 
             transform:translate(0px, -10px);
-            // transform: scaleY(.8);
             transition: max-height linear .6s, transform linear .3s .3s;
             .empty-info {
                 display: block;
@@ -261,12 +230,8 @@ export default {
                 overflow-X: hidden;
                 ul {
                     padding: 15px 17px 0;
-                    // margin: 15px 17px 0 15px;
-                    // max-height: 628px;
-                    // max-height: 328px;
                     width: 320px;
                     box-sizing: border-box;
-                    // overflow: auto;
                     li {
                         display: block;
                         height: 80px;

@@ -20,13 +20,23 @@
             </div>
             <div class="header-search">
                 <form action="" class="search-form">
-                    <input type="search" name="keyword" class="search-text" autocomplete="off">
-                    <!-- <input type="submit" value="&#xe63c;" class="search-btn iconfont"> -->
+                    <input type="search" name="keyword" class="search-text" autocomplete="off" @input="getKeyword($event.target.value)">
                     <a class="search-btn iconfont">&#xe616;</a>
-                    <div class="search-hot-words">
+                    <div v-show="searchBoxEmpty" class="search-hot-words">
                         <a>小米9 Pro 5G</a>
                         <a>Redmi Note 8</a>
                     </div>
+
+                    <div class="keyword-list">
+                        <ul class="result-list">
+                            <li v-for="item in keywordList" v-bind:key="item.index">
+                                <a>
+                                    <span class="keyword">{{item.matchWord}}</span> {{item.followWord}}
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+
                 </form>
             </div>
         </div>
@@ -38,8 +48,57 @@ export default {
     name:'Header',
     data() {
         return {
-
+            keywordList: Array,
+            defaultList: [
+                {"matchWord":"", "followWord":"小米 9"},
+                {"matchWord":"", "followWord":"Redmi K20 Pro"},
+                {"matchWord":"", "followWord":"Redmi K20"},
+                {"matchWord":"", "followWord":"Redmi Note 7 Pro"},
+                {"matchWord":"", "followWord":"Redmi Note 7"},
+                {"matchWord":"", "followWord":"小米电视4c"},
+                {"matchWord":"", "followWord":"电视32英寸"},
+                {"matchWord":"", "followWord":"笔记本pro"},
+                {"matchWord":"", "followWord":"小爱音箱"},
+                {"matchWord":"", "followWord":"净水器"}],
+            searchBoxEmpty: true
         }
+    },
+    methods: {
+        getKeyword(keyword) {
+            if(!keyword) {
+                this.keywordList = this.defaultList;
+                this.searchBoxEmpty = true;
+                return 0;
+            };
+            //http://api.search.mi.com/query?jsonpcallback=xmsearch&query=%E5%B9%B3&page_index=1
+            this.$jsonp("http://api.search.mi.com/query", {
+                // callbackQuery: "jsonpcallback",
+                // callbackName: "xmsearch",
+                query: keyword,
+                page_index: 1
+            }, 3000).then((data) => {
+                console.log(data)
+                this.keywordList = data.data.list.map((item) => {
+                    let matchWord, followWord= "";
+                    if(item.title.indexOf(keyword) == 0) {
+                        matchWord = keyword;
+                        followWord = item.title.slice(keyword.length);
+                    } else {
+                        followWord = item.title;
+                    }
+                    return {
+                        "matchWord":matchWord,
+                        "followWord":followWord
+                    };
+                });
+            }).catch((error) => {
+                console.log(error);
+            });
+            this.searchBoxEmpty = false;
+        }
+    },
+    created() {
+        this.getKeyword();
     }
 }
 </script>
@@ -105,6 +164,7 @@ export default {
                 float: left;
                 width: 127px;
                 padding: 0 5px 0 0;
+                cursor: pointer;
                 a {
                     display: block;
                     padding: 26px 10px 38px;
@@ -114,6 +174,7 @@ export default {
             }
             .nav-item {
                 float: left;
+                cursor: pointer;
                 a {
                     display: block;
                     padding: 26px 10px 38px;
@@ -142,19 +203,21 @@ export default {
                 display: block;
                 width: 245px;
                 height: 50px;
+                font-size: 14px;
                 line-height: 50px;
                 border: 1px solid #e0e0e0;
                 outline: 0;
                 padding: 12px;
                 &:focus, &:focus+.search-btn {
-                    // background-color: #333;
                     border-color: #ff6700;
                 }
                 &:focus~.search-hot-words {
                     transition: all linear .2s;
-                    // display: none;
                     opacity: 0;
                     z-index: -1;
+                }
+                &:focus~.keyword-list {
+                    display: block;
                 }
             }
             .search-btn {
@@ -183,7 +246,6 @@ export default {
                 font-weight: 500;
             }
             .search-hot-words {
-                // background-color: #616161;
                 display: block;
                 z-index: 0;
                 opacity: 1;
@@ -205,6 +267,37 @@ export default {
                     &:hover {
                         background-color: #ff6700;
                         color: #fff;
+                    }
+                }
+            }
+            .keyword-list {
+                display: none;
+                position: absolute;
+                left: 0;
+                top: 50px;
+                width: 243px;
+                border: 1px solid #ff6700;
+                border-top: 0;
+                background: #fff;
+                .result-list {
+                    margin: 0;
+                    padding: 0;
+                    list-style-type: none;
+                    li {
+                        cursor: pointer;
+                        &:hover {
+                            background-color: #fafafa;
+                        }
+                        a {
+                            position: relative;
+                            display: block;
+                            padding: 6px 15px;
+                            font-size: 12px;
+                            color: #424242;
+                            .keyword {
+                                color: #ff6700;
+                            }
+                        }
                     }
                 }
             }
