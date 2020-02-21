@@ -258,6 +258,7 @@ a {
             height: 68px;
             background-color: #414141;
             width: 1226px;
+            overflow: hidden;
             li {
                 display: block;
                 float: left;
