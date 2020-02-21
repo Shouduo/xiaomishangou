@@ -39,14 +39,14 @@
                 <p>
                     © <a>mi.com</a> <a>京ICP证110507号</a> <a>京ICP备10046444号</a> <a>京公网安备11010802020134号</a> <a>京网文[2020]0276-042号</a><br/>
                     <a>（京）网械平台备字（2018）第00005号</a> <a>互联网药品信息服务资格证 (京) -非经营性-2014-0090</a> <a>营业执照</a> <a>医疗器械公告</a><br/>
-                    <a>增值电信业务许可证</a>  网络食品经营备案（京）【2018】WLSPJYBAHF-12   <a>食品经营许可证</a><br/>
+                    <a>增值电信业务许可证</a>&nbsp;网络食品经营备案（京）【2018】WLSPJYBAHF-12   <a>食品经营许可证</a><br/>
                     违法和不良信息举报电话：171-5104-4404 <a>知识产权侵权投诉</a> 本网站所列数据，除特殊说明，所有数据均出自我司实验室测试
                 </p>
             </div>
             <div class="info-links">
                 <a><img src="../assets/truste.png" alt=""></a>
-                <a><img src="../assets/v-logo-1.png" alt=""></a>
                 <a><img src="../assets/v-logo-2.png" alt=""></a>
+                <a><img src="../assets/v-logo-1.png" alt=""></a>
                 <a><img src="../assets/v-logo-3.png" alt=""></a>
                 <a><img src="../assets/v-logo-4.png" alt=""></a>
             </div>
@@ -77,10 +77,11 @@ export default {
     .container {
         position: relative;
         .logo {
-            width: 57px;
+            width: 56px;
             height: 57px;
+            margin-left: 1px;
             margin-right: 10px;
-            background: #ff6700 url("../assets/mi-logo.png") no-repeat 50% 50%;
+            background: #ff6700 url("../assets/mi-logo.png") no-repeat 100% 20%/96%;
             position: absolute;
             top: 0;
             left: 0;
@@ -127,6 +128,7 @@ export default {
                 text-decoration: none;
                 cursor: pointer;
                 font-size: 12px;
+                margin-right: 3px;
                 img {
                     width: auto;
                     height: 28px;

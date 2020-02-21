@@ -1,0 +1,23 @@
+{
+  "id": "1626543",
+  "name": "xiaomishangou",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "8776822",
+      "name": "cart_empty",
+      "font_class": "icon-test",
+      "unicode": "e63b",
+      "unicode_decimal": 58939
+    },
+    {
+      "icon_id": "8776842",
+      "name": "search",
+      "font_class": "icon-test1",
+      "unicode": "e63c",
+      "unicode_decimal": 58940
+    }
+  ]
+}

@@ -3,11 +3,11 @@
         <div class="container">
             <div class="footer-service">
                 <ul class="list-service clear-fixed">
-                    <li><a><i class="iconfont"></i>预约维修服务</a></li>
-                    <li><a><i class="iconfont"></i>7天无理由退货</a></li>
-                    <li><a><i class="iconfont"></i>15天免费换货</a></li>
-                    <li><a><i class="iconfont"></i>满99元包邮</a></li>
-                    <li><a><i class="iconfont"></i>520余家售后网点</a></li>
+                    <li><a><i class="iconfont">&#xe634;</i>预约维修服务</a></li>
+                    <li><a><i class="iconfont">&#xe635;</i>7天无理由退货</a></li>
+                    <li><a><i class="iconfont">&#xe636;</i>15天免费换货</a></li>
+                    <li><a><i class="iconfont">&#xe638;</i>满99元包邮</a></li>
+                    <li><a><i class="iconfont">&#xe637;</i>520余家售后网点</a></li>
                 </ul>
             </div>
             <div class="footer-links clear-fixed">
@@ -36,7 +36,7 @@
                     <dd><a>投资者关系</a></dd>
                 </dl>
                 <dl class="col-links">
-                    <dt>关于我们</dt>
+                    <dt>关注我们</dt>
                     <dd><a>新浪微博</a></dd>
                     <dd><a>官方微信</a></dd>
                     <dd><a>联系我们</a></dd>
@@ -50,7 +50,7 @@
                 <div class="col-contact">
                     <p class="phone">400-100-5678</p>
                     <p>周一至周日 8:00-18:00<br/>（仅收市话费）</p>
-                    <a class="btn"><i class="iconfont"></i>人工客服</a>
+                    <a class="btn"><i class="iconfont">&#xe600;</i>人工客服</a>
                 </div>
             </div>
         </div>
@@ -95,6 +95,14 @@ export default {
                 &:hover {
                     color: #ff6700;
                 }
+                a {
+                    .iconfont {
+                        margin-right: 6px;
+                        font-size: 24px;
+                        line-height: 24px;
+                        vertical-align: -4px;
+                    }
+                }
             }
         }
     }
@@ -108,12 +116,12 @@ export default {
             dt {
                 display: block;
                 font-size: 14px;
-                margin: -1px 0 24px;
+                margin: -3px 0 22px;
                 color: #424242;
             }
             dd {
                 display: block;
-                margin: 10px 0 0;
+                margin: 7px 0 0;
                 // margin-inline-start: 40px;
                 a {
                     font-size: 12px;
@@ -140,6 +148,7 @@ export default {
                 color: #ff6700;
             }
             p {
+                font-size: 12px;
                 margin: 0 0 16px;
             }
             .btn {
@@ -157,6 +166,10 @@ export default {
                 &:hover {
                     background: #ff6700;
                     color: #fff;
+                }
+                .iconfont {
+                    font-size: 12px;
+                    margin-right: 3px;
                 }
             }
         }

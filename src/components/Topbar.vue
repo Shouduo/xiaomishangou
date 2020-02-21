@@ -25,10 +25,13 @@
                 <a class="nav-tag">下载app</a>
             </div>
             <div class="topbar-cart">
-                <a class="nav-tag" :class="{empty:sumCount==0}"><i class="iconfont">&#xe63b;</i>购物车（{{sumCount}}）</a>
+                <a class="nav-tag" :class="{empty:sumCount==0}">
+                    <i class="iconfont" v-if="sumCount==0">&#xe60c;</i>
+                    <i class="iconfont" v-if="sumCount>0">&#xe60d;</i>
+                    购物车 ({{sumCount}})</a>
                 <div class="dropdown-cart">
                     <p class="empty-info" v-if="sumCount==0">购物车中还没有商品，赶紧选购吧！</p>
-                    <div class="list-container" v-if="sumCount!=0">
+                    <div class="list-container" v-if="sumCount>0">
                         <ul>
                             <!-- <li>
                                 <img src="../assets/img/1.jpg" alt="">
@@ -198,6 +201,14 @@ export default {
             cursor: pointer;
             // transition-delay: .65s;
             transition: all linear .1s .65s;
+            .iconfont {
+                font-size: 20px;
+                font-weight: 500;
+                line-height: 20px;
+                // margin-right: 4px;
+                margin-left: -8px;
+                vertical-align: -4px;
+            }
         }
         .empty {
             background-color: #424242;
@@ -210,12 +221,12 @@ export default {
             transition: all linear .1s 0s;
             background-color: #ffffff;
             color: #ff6700;
-            }
-        i {
-            line-height: 20px;
-            font-size: 20px;
-            padding-top: 2px;
         }
+        // i {
+        //     line-height: 20px;
+        //     font-size: 20px;
+        //     padding-top: 2px;
+        // }
         &:hover .dropdown-cart {
             transform:translate(0px, 0px);
             max-height: 800px;

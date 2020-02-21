@@ -8,7 +8,7 @@
                 <ul class="nav-list clear-fixed">
                     <li class="nav-category"><a>全部商品分类</a></li>
                     <li class="nav-item"><a>小米手机</a></li>
-                    <li class="nav-item"><a>Redmi红米</a></li>
+                    <li class="nav-item"><a>Redmi 红米</a></li>
                     <li class="nav-item"><a>电视</a></li>
                     <li class="nav-item"><a>笔记本</a></li>
                     <li class="nav-item"><a>家电</a></li>
@@ -20,9 +20,13 @@
             </div>
             <div class="header-search">
                 <form action="" class="search-form">
-                    <input type="search" name="keyword" class="search-text">
+                    <input type="search" name="keyword" class="search-text" autocomplete="off">
                     <!-- <input type="submit" value="&#xe63c;" class="search-btn iconfont"> -->
-                    <a class="search-btn iconfont">&#xe63c;</a>
+                    <a class="search-btn iconfont">&#xe616;</a>
+                    <div class="search-hot-words">
+                        <a>小米9 Pro 5G</a>
+                        <a>Redmi Note 8</a>
+                    </div>
                 </form>
             </div>
         </div>
@@ -96,11 +100,11 @@ export default {
             width: 820px;
             height: 88px;
             font-size: 16px;
-            padding: 12px 0 0 30px;
+            padding: 12px 0 0 47px;
             .nav-category {
                 float: left;
                 width: 127px;
-                padding: 0 15px 0 0;
+                padding: 0 5px 0 0;
                 a {
                     display: block;
                     padding: 26px 10px 38px;
@@ -142,6 +146,16 @@ export default {
                 border: 1px solid #e0e0e0;
                 outline: 0;
                 padding: 12px;
+                &:focus, &:focus+.search-btn {
+                    // background-color: #333;
+                    border-color: #ff6700;
+                }
+                &:focus~.search-hot-words {
+                    transition: all linear .2s;
+                    // display: none;
+                    opacity: 0;
+                    z-index: -1;
+                }
             }
             .search-btn {
                 display: block;
@@ -163,6 +177,36 @@ export default {
             .search-btn:hover {
                 background: #ff6700;
                 color: #fff;
+            }
+            .iconfont {
+                font-size: 24px;
+                font-weight: 500;
+            }
+            .search-hot-words {
+                // background-color: #616161;
+                display: block;
+                z-index: 0;
+                opacity: 1;
+                position: absolute;
+                top: 14px;
+                right: 62px;
+                text-align: right;
+                transition: all linear .2s;
+                a {
+                    display: inline-block;
+                    font-size: 12px;
+                    line-height: 16px;
+                    background-color: #eee;
+                    color: #757575;
+                    margin-left: 5px;
+                    padding: 1px 5px;
+                    cursor: pointer;
+                    transition: all linear .2s;
+                    &:hover {
+                        background-color: #ff6700;
+                        color: #fff;
+                    }
+                }
             }
         }
     }
