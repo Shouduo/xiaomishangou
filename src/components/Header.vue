@@ -71,7 +71,7 @@ export default {
                 return 0;
             };
             //http://api.search.mi.com/query?jsonpcallback=xmsearch&query=%E5%B9%B3&page_index=1
-            this.$jsonp("http://api.search.mi.com/query", {
+            this.$jsonp("https://api.search.mi.com/query", {
                 // callbackQuery: "jsonpcallback",
                 // callbackName: "xmsearch",
                 query: keyword,
