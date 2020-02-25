@@ -20,16 +20,16 @@
             </div>
             <div class="header-search">
                 <form action="" class="search-form">
-                    <input type="search" name="keyword" class="search-text" autocomplete="off" @input="getKeyword($event.target.value)">
-                    <a class="search-btn iconfont">&#xe616;</a>
+                    <input name="keyword" class="search-text" autocomplete="off" @input="getKeyword($event.target.value)" @blur="getKeyword($event.target.value)" v-model="selectedWord">
+                    <a class="search-btn iconfont" @click="selectWord()">&#xe616;</a>
                     <div v-show="searchBoxEmpty" class="search-hot-words">
-                        <a>小米9 Pro 5G</a>
-                        <a>Redmi Note 8</a>
+                        <a @click="selectWord($event.target.text)">小米9 Pro 5G</a>
+                        <a @click="selectWord($event.target.text)">Redmi Note 8</a>
                     </div>
 
                     <div class="keyword-list">
                         <ul class="result-list">
-                            <li v-for="item in keywordList" v-bind:key="item.index">
+                            <li v-for="item in keywordList" v-bind:key="item.index" v-on:click="selectWord(item.matchWord+item.followWord)">
                                 <a>
                                     <span class="keyword">{{item.matchWord}}</span> {{item.followWord}}
                                 </a>
@@ -60,7 +60,8 @@ export default {
                 {"matchWord":"", "followWord":"笔记本pro"},
                 {"matchWord":"", "followWord":"小爱音箱"},
                 {"matchWord":"", "followWord":"净水器"}],
-            searchBoxEmpty: true
+            searchBoxEmpty: true,
+            selectedWord: ""
         }
     },
     methods: {
@@ -71,19 +72,20 @@ export default {
                 return 0;
             };
             //http://api.search.mi.com/query?jsonpcallback=xmsearch&query=%E5%B9%B3&page_index=1
-            this.$jsonp("https://api.search.mi.com/query", {
+            this.$jsonp("http://api.search.mi.com/query", {
                 // callbackQuery: "jsonpcallback",
                 // callbackName: "xmsearch",
                 query: keyword,
                 page_index: 1
             }, 3000).then((data) => {
-                console.log(data)
+                if(!("list" in data.data)) return;
                 this.keywordList = data.data.list.map((item) => {
                     let matchWord, followWord= "";
                     if(item.title.indexOf(keyword) == 0) {
                         matchWord = keyword;
                         followWord = item.title.slice(keyword.length);
                     } else {
+                        matchWord = "";
                         followWord = item.title;
                     }
                     return {
@@ -94,6 +96,10 @@ export default {
             }).catch((error) => {
                 console.log(error);
             });
+            this.searchBoxEmpty = false;
+        },
+        selectWord(word) {
+            this.selectedWord = word;
             this.searchBoxEmpty = false;
         }
     },
@@ -203,21 +209,27 @@ export default {
                 display: block;
                 width: 245px;
                 height: 50px;
+                box-sizing: border-box;
                 font-size: 14px;
                 line-height: 50px;
                 border: 1px solid #e0e0e0;
                 outline: 0;
                 padding: 12px;
+                transition: all linear 0s .1s;
                 &:focus, &:focus+.search-btn {
                     border-color: #ff6700;
+                    transition: all linear 0s 0s;
                 }
                 &:focus~.search-hot-words {
-                    transition: all linear .2s;
+                    transition: all linear .2s 0s;
                     opacity: 0;
                     z-index: -1;
                 }
                 &:focus~.keyword-list {
-                    display: block;
+                    // display: block;
+                    opacity: 1;
+                    z-index: 0;
+                    transition: all linear 0s 0s;
                 }
             }
             .search-btn {
@@ -236,6 +248,7 @@ export default {
                 top: 0;
                 right: 0;
                 cursor: pointer;
+                transition: all linear 0s .1s;
             }
             .search-btn:hover {
                 background: #ff6700;
@@ -253,7 +266,7 @@ export default {
                 top: 14px;
                 right: 62px;
                 text-align: right;
-                transition: all linear .2s;
+                transition: all linear .2s .1s;
                 a {
                     display: inline-block;
                     font-size: 12px;
@@ -271,7 +284,10 @@ export default {
                 }
             }
             .keyword-list {
-                display: none;
+                // display: none;
+                opacity: 0;
+                z-index: -1;
+                transition: all linear 0s .1s;
                 position: absolute;
                 left: 0;
                 top: 50px;
