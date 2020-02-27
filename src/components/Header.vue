@@ -180,15 +180,16 @@ export default {
             }
             .nav-item {
                 float: left;
-                cursor: pointer;
                 a {
                     display: block;
-                    padding: 26px 10px 38px;
+                    margin: 26px 10px 38px;
                     color: #333;
+                    cursor: pointer;
+                    &:hover {
+                        color: #ff6700;
+                    }
                 }
-                a:hover {
-                    color: #ff6700;
-                }
+                
             }
         }
     }
