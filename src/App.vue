@@ -96,7 +96,7 @@ export default {
         // this.$http.get('./goods.json').then((response) => {
         axios({
             method: "get",
-            url: "data"
+            url: "seckillGoods"
         }).then((response) => {
             this.timesList = response.data.goods.map((item) => {
                 return item.startTime;

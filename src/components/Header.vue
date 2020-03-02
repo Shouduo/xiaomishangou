@@ -7,15 +7,18 @@
             <div class="header-nav">
                 <ul class="nav-list clear-fixed">
                     <li class="nav-category"><a>全部商品分类</a></li>
-                    <li class="nav-item"><a>小米手机</a></li>
-                    <li class="nav-item"><a>Redmi 红米</a></li>
+                    <li class="nav-item" v-for="navItem in navItemList" :key="navItem">
+                        <a @mouseover="activeNavMenu($event.target.text)" @mouseleave="disactiveNavMenu">{{navItem}}</a>
+                    </li>
+                    <!-- <li class="nav-item"><a>Redmi 红米</a></li>
                     <li class="nav-item"><a>电视</a></li>
                     <li class="nav-item"><a>笔记本</a></li>
                     <li class="nav-item"><a>家电</a></li>
                     <li class="nav-item"><a>路由器</a></li>
-                    <li class="nav-item"><a>智能硬件</a></li>
+                    <li class="nav-item"><a>智能硬件</a></li> -->
                     <li class="nav-item"><a>服务</a></li>
                     <li class="nav-item"><a>社区</a></li>
+                    
                 </ul>
             </div>
             <div class="header-search">
@@ -40,14 +43,30 @@
                 </form>
             </div>
         </div>
+        <NavMenu :class="{nav_menu_active:navMenuActive}" :itemName="selectedNavItem" @mouseover.native="activeNavMenu(selectedNavItem)"  @mouseleave.native="disactiveNavMenu"/>
     </div>
 </template>
 
 <script>
+import NavMenu from './NavMenu.vue'
+
 export default {
     name:'Header',
+    components: {
+        NavMenu
+    },
     data() {
         return {
+            navItemList: [
+                "小米手机",
+                "Redmi 红米",
+                "电视",
+                "笔记本",
+                "家电",
+                "路由器",
+                "智能硬件"
+            ],
+            selectedNavItem: "",
             keywordList: Array,
             defaultList: [
                 {"matchWord":"", "followWord":"小米 9"},
@@ -61,7 +80,8 @@ export default {
                 {"matchWord":"", "followWord":"小爱音箱"},
                 {"matchWord":"", "followWord":"净水器"}],
             searchBoxEmpty: true,
-            selectedWord: ""
+            selectedWord: "",
+            navMenuActive: false,
         }
     },
     methods: {
@@ -101,10 +121,59 @@ export default {
         selectWord(word) {
             this.selectedWord = word;
             this.searchBoxEmpty = false;
+        },
+        activeNavMenu(nav) {
+            // console.log(nav);
+            this.selectedNavItem = nav;
+            this.navMenuActive = true;
+        },
+        disactiveNavMenu() {
+            // console.log("leave")
+            this.navMenuActive = false;
+
         }
     },
     created() {
         this.getKeyword();
+    },
+    mounted() {
+        // axios({
+        //     method: "get",
+        //     url: "navbarGoods"
+        // }).then((response) => {
+        //     this.timesList = response.data.goods.map((item) => {
+        //         return item.startTime;
+        //     });
+        //     this.timesList = [...new Set(this.timesList)];
+        //     this.timesList = this.timesList.map((item) => {
+        //         let nowDate = new Date();
+        //         let startDate = new Date();
+        //         startDate.setHours(item.split(":")[0]);
+        //         startDate.setMinutes(item.split(":")[1]);
+        //         startDate.setSeconds(0);
+        //         startDate.setMilliseconds(0);
+        //         if (startDate.getTime() + this.durationMinutes * 60 * 1000 < nowDate.getTime()) {
+        //             startDate.setTime(startDate.getTime() + 24 * 60 * 60 * 1000);
+        //         }
+        //         return {
+        //             "startTime": item,
+        //             "startMilliseconds": startDate.getTime(),
+        //             "tagTitle": "即将开始",
+        //             "subTitle": "距开始"
+        //         };
+        //     })
+        //     this.timesList.sort((a, b) => {
+        //         return a.startMilliseconds - b.startMilliseconds;
+        //     });
+        //     this.timesList = this.timesList.splice(0, 6);
+        //     this.selectTime = this.nextTime = this.timesList[0].startTime;
+        //     this.goodsList = response.data.goods.map((item) => {
+        //         return Object.assign(item, { "alertSet": false, "purchased": false });
+        //     });
+        // })
+        // .catch((error) => {
+        //     console.log(error);
+        // });
     }
 }
 </script>
@@ -180,14 +249,14 @@ export default {
             }
             .nav-item {
                 float: left;
+                cursor: pointer;
+                &:hover a {
+                    color: #ff6700;
+                }
                 a {
                     display: block;
-                    margin: 26px 10px 38px;
+                    padding: 26px 10px 38px;
                     color: #333;
-                    cursor: pointer;
-                    &:hover {
-                        color: #ff6700;
-                    }
                 }
                 
             }
@@ -319,6 +388,15 @@ export default {
                 }
             }
         }
+    }
+    .nav_menu_active {
+        max-height: 229px;
+        box-shadow: 0 3px 4px rgba($color: #000000, $alpha: .18);
+        border-top: 1px solid #e0e0e0;
+        // transition: max-height linear .2s .2s;
+        transition: all linear .2s .2s;
+
+
     }
 }    
 </style>

@@ -1,6 +1,6 @@
 import Mock from 'mockjs'
 
-let data = { 
+let seckillGoods = { 
 "goods":[
     {
         "id": 12164564,
@@ -1381,4 +1381,276 @@ let data = {
     }
 ]};
 
-Mock.mock("data", "get", data);
+let navbarGoods = {
+    "小米手机": [
+        {
+            "id": 32201000,
+            "imgName": "60.png",
+            "name": "小米10 Pro",
+            "price": "4999元起"
+        },
+        {
+            "id": 32201001,
+            "imgName": "61.png",
+            "name": "小米10",
+            "price": "3999元起"
+        },
+        {
+            "id": 32201002,
+            "imgName": "62.png",
+            "name": "小米CC9 Pro",
+            "price": "2599元起"
+        },
+        {
+            "id": 32201003,
+            "imgName": "63.png",
+            "name": "小米9 Pro 5G",
+            "price": "3699元起"
+        },
+        {
+            "id": 32201004,
+            "imgName": "64.png",
+            "name": "小米CC9",
+            "price": "1499元起"
+        },
+        {
+            "id": 32201005,
+            "imgName": "65.png",
+            "name": "小米CC9e",
+            "price": "1299元"
+        }
+    ],
+    "Redmi 红米": [
+        {
+            "id": 32201006,
+            "imgName": "66.jpg",
+            "name": "Redmi K30",
+            "price": "1599元起"
+        },
+        {
+            "id": 32201007,
+            "imgName": "67.jpg",
+            "name": "Redmi K30 5G",
+            "price": "1999元起"
+        },
+        {
+            "id": 32201008,
+            "imgName": "68.png",
+            "name": "Redmi 8A",
+            "price": "599元起"
+        },
+        {
+            "id": 32201009,
+            "imgName": "69.png",
+            "name": "Redmi Note 8",
+            "price": "899元起"
+        },
+        {
+            "id": 32201010,
+            "imgName": "70.png",
+            "name": "Redmi Note 8 Pro",
+            "price": "1299元起"
+        },
+        {
+            "id": 32201011,
+            "imgName": "71.png",
+            "name": "Redmi 8",
+            "price": "699元"
+        }
+    ],
+    "电视": [
+        {
+            "id": 32201012,
+            "imgName": "72.jpg",
+            "name": "Redmi 红米电视 70英寸 R70A",
+            "price": "3299元"
+        },
+        {
+            "id": 32201013,
+            "imgName": "73.jpg",
+            "name": "小米壁画电视 65英寸",
+            "price": "6999元"
+        },
+        {
+            "id": 32201014,
+            "imgName": "74.jpg",
+            "name": "小米全面屏电视E55A",
+            "price": "1799元"
+        },
+        {
+            "id": 32201015,
+            "imgName": "75.png",
+            "name": "小米电视4A 32英寸",
+            "price": "699元"
+        },
+        {
+            "id": 32201016,
+            "imgName": "76.jpg",
+            "name": "小米电视4A 55英寸",
+            "price": "1699元"
+        },
+        {
+            "id": 32201017,
+            "imgName": "77.jpg",
+            "name": "小米电视4A 65英寸",
+            "price": "2599元"
+        },
+    ],
+    "笔记本": [
+        {
+            "id": 32201018,
+            "imgName": "78.jpg",
+            "name": "小米电视4A 65英寸",
+            "price": "2599元"
+        },
+        {
+            "id": 32201019,
+            "imgName": "79.png",
+            "name": "小米电视4A 65英寸",
+            "price": "2599元"
+        },
+        {
+            "id": 32201020,
+            "imgName": "80.png",
+            "name": "小米电视4A 65英寸", 
+            "price": "2599元"
+        },
+        {
+            "id": 32201021,
+            "imgName": "81.png",
+            "name": "小米电视4A 65英寸",
+            "price": "2599元"
+        },
+        {
+            "id": 32201022,
+            "imgName": "82.png",
+            "name": "小米电视4A 65英寸",
+            "price": "2599元"
+        },
+        {
+            "id": 32201023,
+            "imgName": "83.png",
+            "name": "小米电视4A 65英寸",
+            "price": "2599元"
+        },
+    ],
+    "家电": [
+        {
+            "id": 32201024,
+            "imgName": "84.png",
+            "name": "米家互联网空调C1（一级效能）",
+            "price": "2399元"
+        },
+        {
+            "id": 32201025,
+            "imgName": "85.png",
+            "name": "米家互联网空调（一级效能）",
+            "price": "1999元"
+        },
+        {
+            "id": 32201026,
+            "imgName": "86.jpg",
+            "name": "Redmi全自动波轮洗衣机1A",
+            "price": "799元"
+        },
+        {
+            "id": 32201027,
+            "imgName": "87.png",
+            "name": "米家互联网洗烘一体机10kg",
+            "price": "1999元"
+        },
+        {
+            "id": 32201028,
+            "imgName": "88.jpg",
+            "name": "小米净水器",
+            "price": "1299元"
+        },
+        {
+            "id": 32201029,
+            "imgName": "89.jpg",
+            "name": "米家扫地机器人",
+            "price": "1399元"
+        },
+    ],
+    "路由器": [
+        {
+            "id": 32201030,
+            "imgName": "90.png",
+            "name": "小米AIoT路由器AX3600",
+            "price": "599元"
+        },
+        {
+            "id": 32201031,
+            "imgName": "91.png",
+            "name": "Redmi路由器AC2100",
+            "price": "169元"
+        },
+        {
+            "id": 32201032,
+            "imgName": "92.png",
+            "name": "小米路由器AC2100",
+            "price": "229元"
+        },
+        {
+            "id": 32201033,
+            "imgName": "93.jpg",
+            "name": "小米路由器 Mesh",
+            "price": "999元"
+        },
+        {
+            "id": 32201034,
+            "imgName": "94.jpg",
+            "name": "小米路由器4A 千兆版",
+            "price": "129元"
+        },
+        {
+            "id": 32201035,
+            "imgName": "95.jpg",
+            "name": "小米路由器 4C",
+            "price": "59元"
+        },
+    ],
+    "智能硬件": [
+        {
+            "id": 32201036,
+            "imgName": "96.jpg",
+            "name": "小米米家智能摄像机云台版",
+            "price": "199元"
+        },
+        {
+            "id": 32201037,
+            "imgName": "97.jpg",
+            "name": "小米小爱老师",
+            "price": "449元起"
+        },
+        {
+            "id": 32201038,
+            "imgName": "98.jpg",
+            "name": "小米米家智能门锁",
+            "price": "1299元"
+        },
+        {
+            "id": 32201039,
+            "imgName": "99.jpg",
+            "name": "小米小爱触屏音箱",
+            "price": "199元"
+        },
+        {
+            "id": 32201040,
+            "imgName": "100.png", 
+            "name": "Redmi小爱音箱 Play",
+            "price": "79元"
+        },
+        {
+            "id": 32201041,
+            "imgName": "101.jpg",
+            "name": "查看全部",
+            "price": "智能硬件",
+            "showMore": true
+        },
+    ]
+};
+
+
+Mock.mock("seckillGoods", "get", seckillGoods);
+Mock.mock("navbarGoods", "get", navbarGoods);
