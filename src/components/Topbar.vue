@@ -200,7 +200,7 @@ export default {
         }
         &:hover .dropdown-cart {
             transform:translate(0px, 0px);
-            max-height: 800px;
+            max-height: 625px;
             transition: max-height linear .6s, transform linear .3s;
             box-shadow: 0 10px 10px rgba($color: #000000, $alpha: 0.2); 
         }

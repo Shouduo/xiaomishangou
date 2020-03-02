@@ -296,9 +296,10 @@ export default {
                     z-index: -1;
                 }
                 &:focus~.keyword-list {
-                    // display: block;
+                    display: block;
                     opacity: 1;
-                    z-index: 0;
+                    max-height: 500px;
+                    // z-index: 0;
                     transition: all linear 0s 0s;
                 }
             }
@@ -331,7 +332,7 @@ export default {
             .search-hot-words {
                 display: block;
                 z-index: 0;
-                opacity: 1;
+                // opacity: 1;
                 position: absolute;
                 top: 14px;
                 right: 62px;
@@ -356,11 +357,13 @@ export default {
             .keyword-list {
                 // display: none;
                 opacity: 0;
-                z-index: -1;
+                z-index: -4;
                 transition: all linear 0s .1s;
                 position: absolute;
                 left: 0;
                 top: 50px;
+                max-height: 0px;
+                overflow: hidden;
                 width: 243px;
                 border: 1px solid #ff6700;
                 border-top: 0;
