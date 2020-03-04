@@ -225,7 +225,7 @@ export default {
                 color: #424242;
             }
             .list-container {
-                max-height: 628px;
+                max-height: 553px;
                 overflow-Y: auto;
                 overflow-X: hidden;
                 ul {
