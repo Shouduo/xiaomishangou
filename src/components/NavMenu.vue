@@ -12,7 +12,7 @@
                         <a>{{item.name}}</a>
                     </div>
                     <p class="price" v-if="!item.showMore">{{item.price}}</p>
-                    <p class="show_more" v-if="item.showMore">{{item.price}}</p>
+                    <p class="show-more" v-if="item.showMore">{{item.price}}</p>
                 </li>
             </ul>
         </div>
@@ -111,13 +111,14 @@ export default {
                 color: #333;
                 margin: 0;
                 line-height: 20px;
+                cursor: pointer;
             }
             .price {
                 margin: 0;
                 line-height: 20px;
                 color: #ff6700;
             }
-            .show_more {
+            .show-more {
                 margin: 0;
                 line-height: 20px;
                 color: #333;

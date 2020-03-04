@@ -6,7 +6,10 @@
             </div>
             <div class="header-nav">
                 <ul class="nav-list clear-fixed">
-                    <li class="nav-category"><a>全部商品分类</a></li>
+                    <li class="nav-category">
+                        <a>全部商品分类</a>
+                        <SiteCategory />
+                    </li>
                     <li class="nav-item" v-for="navItem in navItemList" :key="navItem">
                         <a @mouseover="activeNavMenu($event.target.text)" @mouseleave="disactiveNavMenu">{{navItem}}</a>
                     </li>
@@ -44,16 +47,19 @@
             </div>
         </div>
         <NavMenu :class="{nav_menu_active:navMenuActive}" :itemName="selectedNavItem" @mouseover.native="activeNavMenu(selectedNavItem)"  @mouseleave.native="disactiveNavMenu"/>
+        <!-- <SiteCategory /> -->
     </div>
 </template>
 
 <script>
 import NavMenu from './NavMenu.vue'
+import SiteCategory from './SiteCategory.vue'
 
 export default {
     name:'Header',
     components: {
-        NavMenu
+        NavMenu,
+        SiteCategory
     },
     data() {
         return {
@@ -245,6 +251,12 @@ export default {
                     padding: 26px 10px 38px;
                     text-align: right;
                     color: #333;
+                }
+                .site-category {
+                    display: none;
+                }
+                &:hover .site-category {
+                    display: block;
                 }
             }
             .nav-item {

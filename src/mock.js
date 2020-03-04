@@ -1651,6 +1651,941 @@ let navbarGoods = {
     ]
 };
 
+let siteCategoryGoods = {
+    "goods": [
+    {
+        "id": 4220,
+        "itemName": "手机 电话卡",
+        "itemsList": [
+            {
+                "id": 42201102,
+                "imgName": "102.png",
+                "name": "小米10 Pro"
+            },
+            {
+                "id": 42201103,
+                "imgName": "103.png",
+                "name": "小米10"
+            },
+            {
+                "id": 42201104,
+                "imgName": "104.jpg",
+                "name": "Redmi K30 4G"
+            },
+            {
+                "id": 42201105,
+                "imgName": "105.jpg",
+                "name": "Redmi K30 5G"
+            },
+            {
+                "id": 42201106,
+                "imgName": "106.png",
+                "name": "小米CC9 Pro"
+            },
+            {
+                "id": 42201107,
+                "imgName": "107.png",
+                "name": "Redmi 8A"
+            },
+            {
+                "id": 42201108,
+                "imgName": "108.png",
+                "name": "Redmi 8"
+            },
+            {
+                "id": 42201109,
+                "imgName": "109.png",
+                "name": "小米MIX Alpha"
+            },
+            {
+                "id": 42201110,
+                "imgName": "110.png",
+                "name": "小米9 Pro 5G"
+            },
+            {
+                "id": 42201111,
+                "imgName": "111.png",
+                "name": "Redmi Note 8 Pro"
+            },
+            {
+                "id": 42201112,
+                "imgName": "112.png",
+                "name": "Redmi Note 8"
+            },
+            {
+                "id": 42201113,
+                "imgName": "113.png",
+                "name": "小米CC9"
+            },
+            {
+                "id": 42201114,
+                "imgName": "114.png",
+                "name": "小米CC9美图定制版"
+            },
+            {
+                "id": 42201115,
+                "imgName": "115.png",
+                "name": "小米CC9e"
+            },
+            {
+                "id": 42201116,
+                "imgName": "116.png",
+                "name": "小米MIX 3"
+            },
+            {
+                "id": 42201117,
+                "imgName": "117.png",
+                "name": "黑鲨手机2 Pro"
+            },
+            {
+                "id": 42201118,
+                "imgName": "118.jpg",
+                "name": "Redmi 7A"
+            },
+            {
+                "id": 42201119,
+                "imgName": "119.jpg",
+                "name": "Redmi Note 7 Pro"
+            },
+            {
+                "id": 42201120,
+                "imgName": "120.jpg",
+                "name": "移动4G+专区"
+            },
+            {
+                "id": 42201121,
+                "imgName": "121.jpg",
+                "name": "小米移动 电话卡"
+            },
+            {
+                "id": 42201122,
+                "imgName": "122.png",
+                "name": "手机上门维修"
+            },
+            {
+                "id": 42201123,
+                "imgName": "123.jpg",
+                "name": "云服务空间月卡"
+            }
+        ]
+    },
+    {
+        "id": 4221,
+        "itemName": "电视 盒子",
+        "itemsList": [
+            {
+                "id": 42211124,
+                "imgName": "124.png",
+                "name": "小米电视5 55英寸"
+            },
+            {
+                "id": 42211125,
+                "imgName": "125.png",
+                "name": "小米电视5 65英寸"
+            },
+            {
+                "id": 42211126,
+                "imgName": "126.png",
+                "name": "小米电视5 75英寸"
+            },
+            {
+                "id": 42211127,
+                "imgName": "127.png",
+                "name": "小米电视5 Pro 55英寸"
+            },
+            {
+                "id": 42211128,
+                "imgName": "128.png",
+                "name": "小米电视5 Pro 65英寸"
+            },
+            {
+                "id": 42211129,
+                "imgName": "129.png",
+                "name": "小米电视5 Pro 75英寸"
+            },
+            {
+                "id": 42211130,
+                "imgName": "130.jpg",
+                "name": "Redmi 红米电视 70英寸"
+            },
+            {
+                "id": 42211131,
+                "imgName": "131.jpg",
+                "name": "全面屏电视Pro 65英寸"
+            },
+            {
+                "id": 42211132,
+                "imgName": "132.jpg",
+                "name": "全面屏电视Pro 55英寸"
+            },
+            {
+                "id": 42211133,
+                "imgName": "133.jpg",
+                "name": "小米壁画电视 65英寸"
+            },
+            {
+                "id": 42211134,
+                "imgName": "134.jpg",
+                "name": "小米全面屏电视"
+            },
+            {
+                "id": 42211135,
+                "imgName": "135.png",
+                "name": "小米电视4A 32英寸"
+            },
+            {
+                "id": 42211136,
+                "imgName": "136.png",
+                "name": "小米电视4A 43英寸青春版"
+            },
+            {
+                "id": 42211137,
+                "imgName": "137.jpg",
+                "name": "小米电视4A 49英寸"
+            },
+            {
+                "id": 42211138,
+                "imgName": "138.png",
+                "name": "小米电视4A 50英寸"
+            },
+            {
+                "id": 42211139,
+                "imgName": "139.png",
+                "name": "小米电视4A 55英寸"
+            },
+            {
+                "id": 42211140,
+                "imgName": "140.png",
+                "name": "小米电视4A 58英寸"
+            },
+            {
+                "id": 42211141,
+                "imgName": "141.png",
+                "name": "小米电视4A 65英寸"
+            },
+            {
+                "id": 42211142,
+                "imgName": "142.png",
+                "name": "小米电视4C 32英寸"
+            },
+            {
+                "id": 42211143,
+                "imgName": "143.jpg",
+                "name": "小米电视4C 40英寸"
+            },
+            {
+                "id": 42211144,
+                "imgName": "144.png",
+                "name": "小米电视4C 43英寸"
+            },
+            {
+                "id": 42211145,
+                "imgName": "145.png",
+                "name": "小米电视4C 50英寸"
+            },
+            {
+                "id": 42211146,
+                "imgName": "146.jpg",
+                "name": "小米电视4C 55英寸"
+            },
+            {
+                "id": 42211147,
+                "imgName": "147.png",
+                "name": "小米电视4X 43英寸"
+            }
+        ]
+    },
+    {
+        "id": 4222,
+        "itemName": "笔记本 显示器 平板",
+        "itemsList": [
+            {
+                "id": 42221148,
+                "imgName": "148.jpg",
+                "name": "RedmiBook 13"
+            },
+            {
+                "id": 42221149,
+                "imgName": "149.png",
+                "name": "小米笔记本 15.6\""
+            },
+            {
+                "id": 42221150,
+                "imgName": "150.png",
+                "name": "小米笔记本 13.3\""
+            },
+            {
+                "id": 42221151,
+                "imgName": "151.jpg",
+                "name": "小米笔记本 12.5\""
+            },
+            {
+                "id": 42221152,
+                "imgName": "152.png",
+                "name": "RedmiBook 14"
+            },
+            {
+                "id": 42221153,
+                "imgName": "153.jpg",
+                "name": "小米笔记本"
+            },
+            {
+                "id": 42221154,
+                "imgName": "154.png",
+                "name": "显示器"
+            },
+            {
+                "id": 42221155,
+                "imgName": "155.jpg",
+                "name": "小米平板4"
+            },
+            {
+                "id": 42221156,
+                "imgName": "156.png",
+                "name": "键鼠套装"
+            },
+            {
+                "id": 42221157,
+                "imgName": "157.png",
+                "name": "鼠标"
+            },
+            {
+                "id": 42221158,
+                "imgName": "158.png",
+                "name": "转接器"
+            },
+            {
+                "id": 42221159,
+                "imgName": "159.jpg",
+                "name": "平板配件"
+            },
+            {
+                "id": 42221160,
+                "imgName": "160.jpg",
+                "name": "小米笔记本内胆包"
+            },
+        ]
+    },
+    {
+        "id": 4223,
+        "itemName": "家电 插线板",
+        "itemsList": [
+            {
+                "id": 42231161,
+                "imgName": "161.jpg",
+                "name": "冰箱"
+            },
+            {
+                "id": 42231162,
+                "imgName": "162.png",
+                "name": "立式空调"
+            },
+            {
+                "id": 42231163,
+                "imgName": "163.png",
+                "name": "壁挂空调"
+            },
+            {
+                "id": 42231164,
+                "imgName": "164.png",
+                "name": "滚筒洗衣机"
+            },
+            {
+                "id": 42231165,
+                "imgName": "165.jpg",
+                "name": "Redmi全自动波轮洗衣机"
+            },
+            {
+                "id": 42231166,
+                "imgName": "166.jpg",
+                "name": "净水器"
+            },
+            {
+                "id": 42231167,
+                "imgName": "167.jpg",
+                "name": "微波炉"
+            },
+            {
+                "id": 42231168,
+                "imgName": "168.jpg",
+                "name": "电烤箱"
+            },
+            {
+                "id": 42231169,
+                "imgName": "169.jpg",
+                "name": "扫地机器人"
+            },
+            {
+                "id": 42231170,
+                "imgName": "170.jpg",
+                "name": "吸尘器"
+            },
+            {
+                "id": 42231171,
+                "imgName": "171.jpg",
+                "name": "空气净化器"
+            },
+            {
+                "id": 42231172,
+                "imgName": "172.jpg",
+                "name": "电饭煲"
+            },
+            {
+                "id": 42231173,
+                "imgName": "173.jpg",
+                "name": "电磁炉"
+            },
+            {
+                "id": 42231174,
+                "imgName": "174.jpg",
+                "name": "电水壶"
+            },
+            {
+                "id": 42231175,
+                "imgName": "175.jpg",
+                "name": "滤水壶"
+            },
+            {
+                "id": 42231176,
+                "imgName": "176.png",
+                "name": "落地风扇"
+            },
+            {
+                "id": 42231177,
+                "imgName": "177.png",
+                "name": "投影仪"
+            },
+            {
+                "id": 42231178,
+                "imgName": "178.jpg",
+                "name": "灯具"
+            },
+            {
+                "id": 42231179,
+                "imgName": "179.jpg",
+                "name": "插线板"
+            },
+            {
+                "id": 42231180,
+                "imgName": "180.jpg",
+                "name": "新风机"
+            },
+            {
+                "id": 42231181,
+                "imgName": "181.jpg",
+                "name": "电暖器"
+            },
+            {
+                "id": 42231182,
+                "imgName": "182.jpg",
+                "name": "电压力锅"
+            },
+            {
+                "id": 42231183,
+                "imgName": "183.jpg",
+                "name": "料理机"
+            },
+            {
+                "id": 42231184,
+                "imgName": "184.jpg",
+                "name": "电煮壶"
+            },
+        ]
+    },
+    {
+        "id": 4224,
+        "itemName": "出行 穿戴",
+        "itemsList": [
+            {
+                "id": 42241185,
+                "imgName": "185.png",
+                "name": "小米手表"
+            },
+            {
+                "id": 42241186,
+                "imgName": "186.png",
+                "name": "手环手表"
+            },
+            {
+                "id": 42241187,
+                "imgName": "187.jpg",
+                "name": "VR"
+            },
+            {
+                "id": 42241188,
+                "imgName": "188.jpg",
+                "name": "平衡车"
+            },
+            {
+                "id": 42241189,
+                "imgName": "189.jpg",
+                "name": "滑板车"
+            },
+            {
+                "id": 42241190,
+                "imgName": "190.png",
+                "name": "自行车"
+            },
+            {
+                "id": 42241191,
+                "imgName": "191.jpg",
+                "name": "车载充电器"
+            },
+            {
+                "id": 42241192,
+                "imgName": "192.jpg",
+                "name": "平衡车配件"
+            },
+            {
+                "id": 42241193,
+                "imgName": "193.jpg",
+                "name": "智能后视镜"
+            },
+            {
+                "id": 42241194,
+                "imgName": "194.jpg",
+                "name": "智能记录仪"
+            },
+            {
+                "id": 42241195,
+                "imgName": "195.jpg",
+                "name": "无线车充"
+            },
+            {
+                "id": 42241196,
+                "imgName": "196.jpg",
+                "name": "充气宝"
+            },
+            {
+                "id": 42241197,
+                "imgName": "197.jpg",
+                "name": "平衡轮"
+            },
+            {
+                "id": 42241198,
+                "imgName": "198.jpg",
+                "name": "石英表"
+            }
+        ]
+    },
+    {
+        "id": 4225,
+        "itemName": "智能 路由器",
+        "itemsList": [
+            {
+                "id": 42251199,
+                "imgName": "199.jpg",
+                "name": "打印机"
+            },
+            {
+                "id": 42251200,
+                "imgName": "200.png",
+                "name": "喷墨打印机"
+            },
+            {
+                "id": 42251201,
+                "imgName": "201.png",
+                "name": "喷墨打印机墨水"
+            },
+            {
+                "id": 42251202,
+                "imgName": "202.png",
+                "name": "小米路由器"
+            },
+            {
+                "id": 42251203,
+                "imgName": "203.jpg",
+                "name": "智能家庭"
+            },
+            {
+                "id": 42251204,
+                "imgName": "204.jpg",
+                "name": "对讲机"
+            },
+            {
+                "id": 42251205,
+                "imgName": "205.jpg",
+                "name": "摄像机"
+            },
+            {
+                "id": 42251206,
+                "imgName": "206.jpg",
+                "name": "照相机"
+            },
+            {
+                "id": 42251207,
+                "imgName": "207.jpg",
+                "name": "智能门锁"
+            },
+            {
+                "id": 42251208,
+                "imgName": "208.jpg",
+                "name": "智能门铃"
+            },
+            {
+                "id": 42251209,
+                "imgName": "209.png",
+                "name": "小爱老师"
+            },
+            {
+                "id": 42251210,
+                "imgName": "210.png",
+                "name": "Redmi路由器"
+            },
+            {
+                "id": 42251211,
+                "imgName": "211.jpg",
+                "name": "小爱音箱"
+            },
+            {
+                "id": 42251212,
+                "imgName": "212.png",
+                "name": "云服务空间年卡"
+            },
+            {
+                "id": 42251213,
+                "imgName": "213.png",
+                "name": "云服务空间月卡"
+            }
+        ]
+    },
+    {
+        "id": 4226,
+        "itemName": "电源 配件",
+        "itemsList": [
+            {
+                "id": 42261214,
+                "imgName": "214.png",
+                "name": "移动电源"
+            },
+            {
+                "id": 42261215,
+                "imgName": "215.jpg",
+                "name": "数据线"
+            },
+            {
+                "id": 42261216,
+                "imgName": "216.jpg",
+                "name": "车充"
+            },
+            {
+                "id": 42261217,
+                "imgName": "217.png",
+                "name": "充电器"
+            },
+            {
+                "id": 42261218,
+                "imgName": "218.jpg",
+                "name": "电池"
+            },
+            {
+                "id": 42261219,
+                "imgName": "219.jpg",
+                "name": "自拍杆"
+            },
+            {
+                "id": 42261220,
+                "imgName": "220.jpg",
+                "name": "手机壳"
+            },
+            {
+                "id": 42261221,
+                "imgName": "221.jpg",
+                "name": "手机贴膜"
+            },
+            {
+                "id": 42261222,
+                "imgName": "222.png",
+                "name": "无线充电器"
+            },
+            {
+                "id": 42261223,
+                "imgName": "223.jpg",
+                "name": "平板配件"
+            },
+            {
+                "id": 42261224,
+                "imgName": "224.jpg",
+                "name": "黑鲨配件"
+            },
+            {
+                "id": 42261225,
+                "imgName": "225.jpg",
+                "name": "其他配件"
+            }
+        ]
+    },
+    {
+        "id": 4227,
+        "itemName": "健康 儿童",
+        "itemsList": [
+            {
+                "id": 42271226,
+                "imgName": "226.jpg",
+                "name": "洗手机"
+            },
+            {
+                "id": 42271227,
+                "imgName": "227.jpg",
+                "name": "修剪器"
+            },
+            {
+                "id": 42271228,
+                "imgName": "228.jpg",
+                "name": "剃须刀"
+            },
+            {
+                "id": 42271229,
+                "imgName": "229.jpg",
+                "name": "日光镜"
+            },
+            {
+                "id": 42271230,
+                "imgName": "230.jpg",
+                "name": "牙刷"
+            },
+            {
+                "id": 42271231,
+                "imgName": "231.jpg",
+                "name": "吹风机"
+            },
+            {
+                "id": 42271232,
+                "imgName": "232.png",
+                "name": "体重秤"
+            },
+            {
+                "id": 42271233,
+                "imgName": "233.jpg",
+                "name": "体脂秤"
+            },
+            {
+                "id": 42271234,
+                "imgName": "234.jpg",
+                "name": "早教启智"
+            },
+            {
+                "id": 42271235,
+                "imgName": "235.jpg",
+                "name": "遥控电动"
+            },
+            {
+                "id": 42271236,
+                "imgName": "236.jpg",
+                "name": "益智积木"
+            },
+            {
+                "id": 42271237,
+                "imgName": "237.jpg",
+                "name": "儿童手表"
+            },
+            {
+                "id": 42271238,
+                "imgName": "238.jpg",
+                "name": "儿童滑板鞋"
+            },
+            {
+                "id": 42271239,
+                "imgName": "239.jpg",
+                "name": "婴儿推车"
+            },
+            {
+                "id": 42271240,
+                "imgName": "240.jpg",
+                "name": "儿童书包"
+            },
+            {
+                "id": 42271241,
+                "imgName": "241.jpg",
+                "name": "婴儿理发器"
+            },
+            {
+                "id": 42271242,
+                "imgName": "242.jpg",
+                "name": "儿童保温杯"
+            },
+            {
+                "id": 42271243,
+                "imgName": "243.png",
+                "name": "健身车"
+            },
+            {
+                "id": 42271244,
+                "imgName": "244.jpg",
+                "name": "走步机"
+            },
+            {
+                "id": 42271245,
+                "imgName": "245.jpg",
+                "name": "点读机"
+            }
+        ]
+    },
+    {
+        "id": 4228,
+        "itemName": "耳机 音箱",
+        "itemsList": [
+            {
+                "id": 42281246,
+                "imgName": "246.png",
+                "name": "音箱 Pro"
+            },
+            {
+                "id": 42281247,
+                "imgName": "247.png",
+                "name": "小爱音箱"
+            },
+            {
+                "id": 42281248,
+                "imgName": "248.jpg",
+                "name": "小米小爱音箱 Play版"
+            },
+            {
+                "id": 42281249,
+                "imgName": "249.jpg",
+                "name": "线控耳机"
+            },
+            {
+                "id": 42281250,
+                "imgName": "250.jpg",
+                "name": "蓝牙耳机"
+            },
+            {
+                "id": 42281251,
+                "imgName": "251.jpg",
+                "name": "头戴耳机"
+            },
+            {
+                "id": 42281252,
+                "imgName": "252.jpg",
+                "name": "品牌耳机"
+            },
+            {
+                "id": 42281253,
+                "imgName": "253.png",
+                "name": "蓝牙音箱"
+            },
+            {
+                "id": 42281254,
+                "imgName": "254.jpg",
+                "name": "小米AI音箱"
+            },
+            {
+                "id": 42281255,
+                "imgName": "255.jpg",
+                "name": "小米小爱音箱HD"
+            },
+            {
+                "id": 42281256,
+                "imgName": "256.jpg",
+                "name": "k歌耳机"
+            },
+            {
+                "id": 42281257,
+                "imgName": "257.png",
+                "name": "Redmi音箱"
+            },
+            {
+                "id": 42281258,
+                "imgName": "258.jpg",
+                "name": "小爱触屏音箱"
+            }
+        ]
+    },
+    {
+        "id": 4229,
+        "itemName": "生活 箱包",
+        "itemsList": [
+            {
+                "id": 42291259,
+                "imgName": "259.jpg",
+                "name": "小背包"
+            },
+            {
+                "id": 42291260,
+                "imgName": "260.jpg",
+                "name": "双肩包"
+            },
+            {
+                "id": 42291261,
+                "imgName": "261.jpg",
+                "name": "胸包"
+            },
+            {
+                "id": 42291262,
+                "imgName": "262.jpg",
+                "name": "旅行箱"
+            },
+            {
+                "id": 42291263,
+                "imgName": "263.jpg",
+                "name": "运动鞋"
+            },
+            {
+                "id": 42291264,
+                "imgName": "264.jpg",
+                "name": "眼镜"
+            },
+            {
+                "id": 42291265,
+                "imgName": "265.jpg",
+                "name": "床垫"
+            },
+            {
+                "id": 42291266,
+                "imgName": "266.png",
+                "name": "枕头"
+            },
+            {
+                "id": 42291267,
+                "imgName": "267.jpg",
+                "name": "饰品"
+            },
+            {
+                "id": 42291268,
+                "imgName": "268.jpg",
+                "name": "螺丝刀"
+            },
+            {
+                "id": 42291269,
+                "imgName": "269.jpg",
+                "name": "保温杯"
+            },
+            {
+                "id": 42291270,
+                "imgName": "270.jpg",
+                "name": "伞"
+            },
+            {
+                "id": 42291271,
+                "imgName": "271.jpg",
+                "name": "驱蚊器"
+            },
+            {
+                "id": 42291272,
+                "imgName": "272.jpg",
+                "name": "尤克里里"
+            },
+            {
+                "id": 42291273,
+                "imgName": "273.jpg",
+                "name": "毛巾/浴巾"
+            },
+            {
+                "id": 42291274,
+                "imgName": "274.png",
+                "name": "米兔"
+            },
+            {
+                "id": 42291275,
+                "imgName": "275.jpg",
+                "name": "笔"
+            }
+        ]
+    }
+]}
+
 
 Mock.mock("seckillGoods", "get", seckillGoods);
 Mock.mock("navbarGoods", "get", navbarGoods);
+Mock.mock("siteCategoryGoods", "get", siteCategoryGoods);
