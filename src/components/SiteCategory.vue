@@ -18,7 +18,6 @@
                 </div>
             </li>
         </ul>
-        
     </div>
 </template>
 
@@ -75,7 +74,6 @@ export default {
         background-color: #fff;
         .category-item {
             display: list-item;
-            // text-align: -webkit-match-parent;
             color: #424242;
             cursor: pointer;
             &:hover {
@@ -103,31 +101,18 @@ export default {
             }
             .children {
                 display: none;
-                // flex-direction: columns;
-                // flex-wrap: wrap;
                 position: absolute;
                 left: 234px;
                 top: 0;
                 z-index: 4;
                 height: 458px;
-                // width: 800px;
                 border: 1px solid #e0e0e0;
                 border-left: 0;
                 background-color: #fff;
                 box-shadow: 0 8px 16px rgba($color: #000000, $alpha: .18);
                 .children-list {
-                    // display: flex;
-                    // flex-direction: column;
-                    // flex-wrap: wrap;
-                    // align-items: flex-start;
-                    // -webkit-flex-flow: column wrap;
                     writing-mode: vertical-lr;
-                    // background-color: yellow;
-                    // align-content: space-between;
                     height: 458px;
-                    // width: 100px;
-                    // margin: 0;
-                    // padding: 0;
                     li {
                         display: inline-block;
                         writing-mode: horizontal-tb;
@@ -137,14 +122,11 @@ export default {
                             display: block;
                             margin-left: 20px;
                             line-height: 76px;
-                            // width: 248px;
-                            // box-sizing: border-box;
                             color: #333;
                             transition: color linear .2s;
                             
                             &:hover {
                                 color: #ff6700;
-                                // transition: color linear .2s;
                             }
                             .thumb {
                                 margin-right: 12px;
@@ -154,8 +136,6 @@ export default {
                             }
                             .text {
                                 line-height: 40px;
-                                // color: #333;
-                                // transition: color linear .2s;
                             }
                         }
                     }

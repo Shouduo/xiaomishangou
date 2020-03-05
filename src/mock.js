@@ -2583,7 +2583,7 @@ let siteCategoryGoods = {
             }
         ]
     }
-]}
+]};
 
 
 Mock.mock("seckillGoods", "get", seckillGoods);

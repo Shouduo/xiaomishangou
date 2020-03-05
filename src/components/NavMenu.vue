@@ -44,9 +44,6 @@ export default {
             url: "navbarGoods"
         }).then((response) => {
             this.goodsList = response.data;
-            // console.log(this.goodsList)
-            // console.log(this.shownList)
-            // console.log(this.itemName)
         })
         .catch((error) => {
             console.log(error);
@@ -63,17 +60,12 @@ export default {
 <style lang="scss" scoped>
 .header-nav-menu {
     display: block;
-    // position: absolute;
-    // height: 229px;
     max-height: 0px;
     background-color: #fff;
     padding: 0;
     margin: 0;
     border-top: 0px solid #e0e0e0;
-    // box-sizing: border-box;
     overflow: hidden;
-    // box-shadow: 0 3px 4px rgba($color: #000000, $alpha: .18);
-    // transition: max-height linear .2s .2s;
     transition: all linear .2s .2s;
     .children-list {
         margin: 0;

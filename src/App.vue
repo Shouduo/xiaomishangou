@@ -12,10 +12,10 @@
                         <li :class="{active:selectTime==item.startTime}" v-for="item in timesList" v-bind:key="item.startTime" @click="timeSelect(item.startTime)">
                             <em>{{item.startTime}}</em>
                             <span>
-                                        <em class="specail">{{item.tagTitle}}<br>
-                                            <a v-show="nextTime==item.startTime">{{item.subTitle}} {{timeLeft}}</a>
-                                        </em>
-                                    </span>
+                                <em class="specail">{{item.tagTitle}}<br>
+                                    <a v-show="nextTime==item.startTime">{{item.subTitle}} {{timeLeft}}</a>
+                                </em>
+                            </span>
                         </li>
                     </ul>
                 </div>

@@ -1,10 +1,10 @@
 <template>
     <div class="card">
         <div class="bg">
-            <img :src="requireImg" alt="" title="">
+            <img :src="requireImg(itemInfo)" alt="" title="">
         </div>
         <div class="info">
-            <p href="" class="name">{{itemInfo.name}}</p>
+            <p class="name" :title="itemInfo.name">{{itemInfo.name}}</p>
             <p class="tips">{{itemInfo.tip}}</p>
 
             <div v-show="itemInfo.status!='hanging'">
@@ -43,9 +43,6 @@ export default {
         }
     },
     computed: {
-        requireImg() {
-            return require('../assets/img/' + this.itemInfo.imgName);
-        },
         percentage() {
             return Math.floor(this.itemInfo.sold/this.itemInfo.amount*100); 
         },
@@ -75,6 +72,9 @@ export default {
         alertBtnClick() {
             this.itemInfo.alertSet = !this.itemInfo.alertSet;
             this.alertBtn = this.alertBtn == "提醒我"? "已设置提醒":"提醒我";
+        },
+        requireImg(item) {
+            return require('../assets/img/' + item.imgName);
         }
     },
     watch: {

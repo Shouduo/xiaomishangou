@@ -1,7 +1,7 @@
 # xiaomishangou--小米闪购 精仿项目
-'xiaomishangou' is a high copy project of site [http://www.mi.com/seckill](http://www.mi.com/seckill).
-It's highly completed with full first-page function of the origin site. 
-Project bases on Vue-cli 3.0+ and mocks data via Mockjs.
+'xiaomishangou' is a high copy project of site [http://www.mi.com/seckill](http://www.mi.com/seckill).  
+It's highly completed with full first-page function of the origin site.  
+Project bases on Vue-cli 3.0+ and mocks data via Mockjs.  
 Click [here](https://shouduo.github.io/xiaomishangou/) for online preview.
 ## Project setup
 ```
