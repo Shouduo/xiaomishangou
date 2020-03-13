@@ -6,7 +6,7 @@ Click [here](https://shouduo.github.io/xiaomishangou/) for online preview.
 ## Project setup
 ```
 git clone https://github.com/Shouduo/xiaomishangou.git
-cd todone
+cd xiaomishangou
 npm install
 npm run serve
 ```
